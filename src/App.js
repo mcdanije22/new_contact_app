@@ -1,12 +1,21 @@
 import React, { Component } from 'react';
-import './App.css';
+import './App.scss';
+import NavigationBar from './components/NavigationBar';
+import SideBar from './components/SideBar';
+
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-      
-      </div>
+          <SideBar />
+          <div id = 'main'>
+            <NavigationBar />
+              <h1>
+                Contacts 
+              </h1>
+           </div> 
+        </div>
     );
   }
 }
