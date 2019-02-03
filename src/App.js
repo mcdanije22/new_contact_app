@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import './App.scss';
 import NavigationBar from './components/NavigationBar';
-import SideBar from './components/SideBar';
+import HeroProfile from './components/HeroProfile';
 
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-          <SideBar />
           <div id = 'main'>
-            <NavigationBar />
+          <HeroProfile />
               <h1>
                 Contacts 
               </h1>
+            <NavigationBar />
            </div> 
         </div>
     );

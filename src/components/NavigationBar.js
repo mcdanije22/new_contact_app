@@ -1,18 +1,24 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { faSearch, faUserPlus, faStar } from '@fortawesome/free-solid-svg-icons'
+
 
 const NavigationBar = ()=>{
 
     return(
         <div id ='nav'>
-            <button type='submit' id ='menuBtn'>
-            <FontAwesomeIcon icon={faBars} />
+            <button type='submit' id ='searchBtn'>
+            <FontAwesomeIcon icon={faSearch} />
             </button>
 
-           <input type='image' id='profileBtn' src='https://via.placeholder.com/150'/>
+            <button type='submit' id ='addBtn'>
+            <FontAwesomeIcon icon={faUserPlus} />
+            </button>
 
-            {/* <img src='https://via.placeholder.com/150'> */}
+            <button type='submit' id ='favBtn'>
+            <FontAwesomeIcon icon={faStar} />
+            </button>
+
         </div>
     )
 }  

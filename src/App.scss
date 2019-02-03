@@ -4,46 +4,57 @@
     font-family: 'Roboto', sans-serif;
 }
 .App{
-    background-color: rgb(59,69,102);
-    background-color: linear-gradient(18deg, rgba(59,69,102,1) 0%, rgba(40,46,73,1) 100%);
+    background: rgb(59,69,102);
+    background: linear-gradient(0deg, rgba(59,69,102,1) 0%, rgba(40,46,73,1) 100%);
     height:100vh;
 }
 
 h1{
     font-size:6rem;
-    margin: 8rem 4rem;
     color: white;
+    margin: 3rem 0 0 5rem; 
 }
 
+// #nav{
+//     display:flex;
+//     justify-content: space-between;
+//         #menuBtn, #profileBtn{
+//             border:none;
+//             margin: 3rem;
+//             }           
+//             #menuBtn{
+//                 background-color:transparent;
+//                 font-size:3rem;
+//                 padding: 1rem;
+//                 color:white;
+//             }
+//             #profileBtn{
+//                 border-radius: 50%;
+//             }
+//             img{
+//                 border-radius: 1rem;
+//             }
+//         }
+#profileBtn{
+    border-radius: 50%;
+    margin-left:80%;
+    margin-top:3rem;
+        }
 #nav{
     display:flex;
-    justify-content: space-between;
-        #menuBtn, #profileBtn{
+    justify-content: space-evenly;
+    position: fixed;
+    bottom:0;
+    width:100%;
+    overflow: hidden;
+    padding:4rem 0 4rem 0;
+    // border: 1px solid black;
+        #addBtn, #searchBtn, #favBtn{
+            font-size:5rem;
             border:none;
-            margin: 3rem;
-            }           
-            #menuBtn{
-                background-color:transparent;
-                font-size:3rem;
-                padding: 1rem;
-                color:white;
-            }
-            #profileBtn{
-                border-radius: 50%;
-            }
-            img{
-                border-radius: 1rem;
-            }
-        }
+            background-color:transparent;
+            color:white;
+            
+        }        
+}
 
-
-//  for menu toggling       
-// #sideBar{
-//     height:100vh;
-//     background-color:black;
-//     width:65%;
-//     position:fixed;
-// }
-// #main{
-//     margin-left:30rem;
-// }
