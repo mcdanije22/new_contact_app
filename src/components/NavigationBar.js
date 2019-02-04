@@ -14,6 +14,7 @@ const NavigationBar = ()=>{
             <button type='submit' id ='addBtn'>
             <FontAwesomeIcon icon={faUserPlus} />
             </button>
+            
 
             <button type='submit' id ='favBtn'>
             <FontAwesomeIcon icon={faStar} />
