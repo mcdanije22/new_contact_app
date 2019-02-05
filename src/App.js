@@ -31,7 +31,7 @@ class App extends Component {
           <div id = 'main'>
           <HeroProfile />
             <h1>
-              Contacts 
+             <span id='contactCount'>{this.state.contactList.length}</span> Contacts 
             </h1>
           <ContactDisplay 
             contactList = {this.state.contactList}
