@@ -1,5 +1,6 @@
 import React from 'react';
 import ContactCard from './ContactCard';
+import './contactDisplay.scss';
 
 const ContactDisplay = ({contactList})=>{
 

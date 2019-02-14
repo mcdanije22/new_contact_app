@@ -1,5 +1,5 @@
 import React from 'react';
-import photo from './contact_photos/contact_1.jpg';
+import photo from '../contact_photos/contact_1.jpg';
 
 const ContactCard = ({contact})=>{
 const {first, last, number, email, area, instagram, facebook, linkedin,twitter} = contact;

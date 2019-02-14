@@ -1,0 +1,40 @@
+#addForm{
+    background-color:#FFFFFF;
+    color: black;
+    width:75%;
+    height:70rem;
+    text-align: center;
+    border-radius: 5%;
+        #addFormBanner{
+            background-color:#F0F0F0;
+            height:8rem;
+            border-radius: 5%;
+            font-size:2rem;
+        }
+        .addInput{
+            padding:1%;
+            width: 60%;
+            margin: 2%;
+            text-align:center;
+            border:1px black solid;
+            font-size:2rem;
+        }
+}
+
+#addFormModel{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    // padding-top:35rem;
+    background-color: rgba(0,0,0,0.4);
+    z-index: 1;
+    opacity: 1;
+    animation: show .5s ease;
+    overflow-X: hidden;
+    overflow-Y: auto;
+}

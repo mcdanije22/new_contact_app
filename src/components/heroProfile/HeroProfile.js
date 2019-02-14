@@ -1,6 +1,6 @@
 import React from 'react';
-import photo from './contact_photos/contact_1.jpg';
-
+import photo from '../contact_photos/contact_1.jpg';
+import './heroProfile.scss';
 
 const HeroProfile = ()=>{
 

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './addForm.scss'
 const AddForm = ()=>{
     return(
         <div id ='addFormModel'>
