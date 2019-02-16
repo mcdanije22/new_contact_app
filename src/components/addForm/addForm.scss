@@ -1,3 +1,4 @@
+ 
 #addForm{
     background-color:#FFFFFF;
     color: black;
@@ -5,20 +6,49 @@
     height:70rem;
     text-align: center;
     border-radius: 5%;
+        #inputGroup{
+            margin-top:4rem;
+            .inputName{
+                font-size:2rem;
+                text-align: left;
+                margin-left:8rem;
+            }
+        }
         #addFormBanner{
             background-color:#F0F0F0;
             height:8rem;
             border-radius: 5%;
             font-size:2rem;
+            h2{
+                padding-top:2rem;
+            }
         }
         .addInput{
             padding:1%;
             width: 60%;
             margin: 2%;
-            text-align:center;
-            border:1px black solid;
+            text-align:left;
             font-size:2rem;
+            border: none;
+            background:transparent;
+            border-bottom: 1px solid;
+            outline:none;
         }
+        #addtBtn, #clearBtn{
+            border: 1px black solid;
+            font-size:3rem;
+            padding:1rem;
+            margin: 1.5rem 0 .5rem 0;
+            width:70%
+           
+        }  
+        #addtBtn{
+            background-color:#4CAF50
+        }
+        #clearBtn{
+            background-color:#f44336
+        }
+        
 }
 
 #addFormModel{
@@ -37,4 +67,7 @@
     animation: show .5s ease;
     overflow-X: hidden;
     overflow-Y: auto;
+}
+#closeAddFormModel{
+    display:none;
 }

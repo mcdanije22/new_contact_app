@@ -1,7 +1,9 @@
 import {combineReducers} from 'redux';
-import appReducer from './appReducer';
+import initialContactList from '../components/contacts/contactReducers';
+import modalToggle from '../components/addForm/addFormReducer';
 
 const rootReducer = combineReducers({
-    appReducer
+    initialContactList,
+    modalToggle
 })
 export default rootReducer;

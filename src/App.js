@@ -5,24 +5,29 @@ import HeroProfile from './components/heroProfile/HeroProfile';
 import ContactDisplay from './components/contacts/ContactDisplay';
 import AddForm from './components/addForm/AddForm';
 
+import { intialContactList } from './components/contacts/contactActions';
 import { connect } from 'react-redux';
 
+const mapStateToProps = state =>{
+  return {
+     contactList: state.initialContactList.contactList
+  }
+}
+
+const mapDispatchToProps = (dispatch) =>{
+  return{
+    onStartContactList: ()=>dispatch(intialContactList())
+  }
+}
 
 class App extends Component {
   constructor(props){
     super(props);
-    this.state={
-      contactList:[
-        {first:'Josh',last:'McDaniel',number:'555-666-7777',email:'joshmcdaniel@gmail.com',area:'Mount Morris, Ny',instagram:'https://www.instagram.com/mcdanije/', facebook:'https://www.facebook.com/josh.mcdaniel.5201', linkedin:'https://www.linkedin.com/in/mcdanije/',twitter:'https://twitter.com/'},
-        {first:'Briana',last:'McDaniel',number:'888-999-1111',email:'brianamcdaniel@gmail.com',area:'Mount Morris, Ny',instagram:'https://www.instagram.com/mcdanije/', facebook:'https://www.facebook.com/josh.mcdaniel.5201', linkedin:'https://www.linkedin.com/in/mcdanije/',twitter:'https://twitter.com/'},
-        {first:'Finn',last:'McDaniel',number:'222-333-4444',email:'finnmcdaniel@gmail.com',area:'Mount Morris, Ny',instagram:'https://www.instagram.com/mcdanije/', facebook:'https://www.facebook.com/josh.mcdaniel.5201', linkedin:'https://www.linkedin.com/in/mcdanije/',twitter:'https://twitter.com/'},
-        {first:'Josh',last:'McDaniel',number:'555-666-7777',email:'joshmcdaniel@gmail.com',area:'Mount Morris, Ny',instagram:'https://www.instagram.com/mcdanije/', facebook:'https://www.facebook.com/josh.mcdaniel.5201', linkedin:'https://www.linkedin.com/in/mcdanije/',twitter:'https://twitter.com/'},
-        {first:'Briana',last:'McDaniel',number:'888-999-1111',email:'brianamcdaniel@gmail.com',area:'Mount Morris, Ny',instagram:'https://www.instagram.com/mcdanije/', facebook:'https://www.facebook.com/josh.mcdaniel.5201', linkedin:'https://www.linkedin.com/in/mcdanije/',twitter:'https://twitter.com/'},
-        {first:'Finn',last:'McDaniel',number:'222-333-4444',email:'finnmcdaniel@gmail.com',area:'Mount Morris, Ny',instagram:'https://www.instagram.com/mcdanije/', facebook:'https://www.facebook.com/josh.mcdaniel.5201', linkedin:'https://www.linkedin.com/in/mcdanije/',twitter:'https://twitter.com/'}
-      ]
-
-    };
   };
+
+  componentDidMount(){
+    this.props.onStartContactList();
+  }
 
   render() {
     
@@ -31,11 +36,11 @@ class App extends Component {
         <AddForm />
           <div id = 'main'>
           <HeroProfile />
-            <h1>
-             <span id='contactCount'>{this.state.contactList.length}</span> Contacts 
+            <h1 id='contactCount'>
+             <span id='contactCount'>{this.props.contactList.length}</span> Contacts 
             </h1>
           <ContactDisplay 
-            contactList = {this.state.contactList}
+            contactList = {this.props.contactList}
           />  
           <NavigationBar />
            </div> 
@@ -44,4 +49,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(mapStateToProps,mapDispatchToProps)(App);
