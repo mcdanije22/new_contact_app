@@ -1,24 +1,10 @@
 import React from 'react';
 import './addForm.scss'
 
-import {checkModal} from './addFormAction'
-import {connect} from 'react-redux';
-
-const mapStateToProps= state =>{
-    return{
-        modalIsOpen: state.modalToggle.modalIsOpen,
-    }
-}
-const mapDispatchToProps = (dispatch) =>{
-    return{
-    toggleModal:()=>dispatch(checkModal()),
-    }
-}
-
-console.log(this.props.modalIsOpen)
-const AddForm = ()=>{
-    return(
-        <div id={this.props.modalIsOpen?'addFormModel':'closeAddFormModel'}>
+  
+   const AddForm = ()=>{ 
+       return(
+        <div id= 'closeAddFormModel'>
             <div id='addForm'>
                 <div id='addFormBanner'>
                     <h2>ADD CONTACT</h2>
@@ -40,6 +26,9 @@ const AddForm = ()=>{
                 </form>
          </div>
         </div>
-    )
-}  
-export default connect(mapStateToProps, mapDispatchToProps)(AddForm);
+        
+        )
+   }
+
+  
+export default AddForm;

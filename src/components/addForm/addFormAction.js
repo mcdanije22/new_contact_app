@@ -1,5 +1,6 @@
 export const checkModal = () =>{
     return{
-    type: 'MODAL_OPEN'
+        type: 'TOGGLE_MODAL',
     }
 }
+
