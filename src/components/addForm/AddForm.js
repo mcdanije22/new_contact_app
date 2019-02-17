@@ -1,17 +1,19 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import './addForm.scss'
 
   
-   const AddForm = ()=>{ 
+   const AddForm = ({addFormModal,modalToggle, inputChange})=>{ 
        return(
-        <div id= 'closeAddFormModel'>
+        <div id={addFormModal?'addFormModel': 'closeAddFormModel' }>
             <div id='addForm'>
                 <div id='addFormBanner'>
-                    <h2>ADD CONTACT</h2>
+                    <button type = 'button' id ='closeBtn' onClick={modalToggle}><FontAwesomeIcon icon={faTimes} /></button> <h2>ADD CONTACT</h2> 
                 </div>
                 <form id = 'inputGroup'>
                     <h3 className = 'inputName'>First Name</h3>
-                        <input type='text' name='first' placeholder='e.g. John' className='addInput'/>
+                        <input type='text' name='first' placeholder='e.g. John' className='addInput' onChange={inputChange}/>
                     <h3 className = 'inputName'>Last Name</h3>
                         <input type='text' name='last' placeholder='e.g. Smith'  className='addInput'/>
                     <h3 className = 'inputName'>Phone Number</h3>
@@ -19,7 +21,7 @@ import './addForm.scss'
                     <h3 className = 'inputName'>Email Address</h3>
                         <input type='text' name='email' placeholder='johnsmith@gmail.com'  className='addInput'/>
                     <h3 className = 'inputName'>Location</h3>
-                        <input type='text' name='area' placeholder='Rochester,Ny'  className='addInput'/>
+                        <input type='text' name='location' placeholder='Rochester,Ny'  className='addInput'/>
                     <br/>
                     <button type='submit' id ='addtBtn'>Add Contact</button>
                     <button type='submit' id ='clearBtn'>Clear</button>

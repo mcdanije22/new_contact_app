@@ -21,6 +21,7 @@
             font-size:2rem;
             h2{
                 padding-top:2rem;
+                margin-left:6rem;
             }
         }
         .addInput{
@@ -47,6 +48,13 @@
         }
         #clearBtn{
             background-color:#f44336
+        }
+        #closeBtn{
+            font-size:3rem;
+            border: none;
+            background-color:transparent;
+            float:right;
+            padding:2rem;
         }
         
 }

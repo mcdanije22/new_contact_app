@@ -1,22 +1,23 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch, faUserPlus, faStar } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch, faUserPlus, faStar } from '@fortawesome/free-solid-svg-icons';
 import './navigationBar.scss';
 
-const NavigationBar = ()=>{
+
+const NavigationBar = ({modalToggle})=>{
 
     return(
         <div id ='nav'>
-            <button type='submit' id ='searchBtn'>
+            <button type='button' id ='searchBtn'>
             <FontAwesomeIcon icon={faSearch} />
             </button>
 
-            <button type='submit' id ='addBtn'>
+            <button type='button' id ='addBtn' onClick={modalToggle}>
             <FontAwesomeIcon icon={faUserPlus} />
             </button>
             
 
-            <button type='submit' id ='favBtn'>
+            <button type='button' id ='favBtn'>
             <FontAwesomeIcon icon={faStar} />
             </button>
 

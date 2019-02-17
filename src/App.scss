@@ -9,6 +9,9 @@ body{
     background: rgb(59,69,102);
     background: radial-gradient(circle, rgba(59,69,102,1) 0%, rgba(40,46,73,1) 100%);
 }
-
+*:focus{
+    outline:none;
+    border:none;
+}
 
 
