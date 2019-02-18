@@ -23,7 +23,6 @@ class App extends Component {
       number: '',
       email:'',
       location:'',
-      newCtc:{},
       addFormModal:false
     }
   };
@@ -37,13 +36,45 @@ class App extends Component {
     this.setState({[e.target.name]:e.target.value});
     console.log(e.target.value)
   }
-  addNewContact = (event) =>{
-    const newCtc = Object.assign({}, {first:this.state.first});
-    this.setState({newCtc:newCtc})
-    console.log(this.state.newCtc);
-    event.preventDefault()
 
+  addNewContact = (newContact) =>{
+    if(this.state.first === '' || this.state.last === '' || this.state.number === '' || this.state.email === '' || this.state.location === ''){
+      alert('Please fill in all fields');
+      return
+    }else{
+    const newContactList = [...this.state.contactList, newContact];
+    this.setState({contactList:newContactList},()=>{
+      console.log(this.state.contactList);
+      });
+      this.clearAddForm();
+      this.modalToggle();
+    }
   }
+
+  clearAddForm = () =>{
+    this.setState({
+      first:'',
+      last:'',
+      number:'',
+      email:'',
+      loation:''
+    });
+    console.log(this.state.first)
+  }
+
+  onSubmitAddForm = (e) =>{
+    e.preventDefault();
+    const newContact = Object.assign({}, {
+      first:this.state.first, 
+      last:this.state.last, 
+      number:this.state.number, 
+      email:this.state.email,
+      location:this.state.location
+    });
+    this.addNewContact(newContact);
+  }
+ 
+  
   render() {
     
     return (
@@ -52,7 +83,12 @@ class App extends Component {
         addFormModal = {this.state.addFormModal}
         modalToggle = {this.modalToggle}
         inputChange = {this.inputChange}
-        addNewContact = {this.addNewContact}
+        onSubmitAddForm = {this.onSubmitAddForm}
+        first = {this.state.first}
+        last = {this.state.last}
+        number = {this.state.number}
+        email = {this.state.email}
+        location = {this.state.location}
         />
           <div id = 'main'>
           <HeroProfile />
