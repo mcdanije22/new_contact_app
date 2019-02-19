@@ -13,7 +13,7 @@ class App extends Component {
       contactList: [
         {first:'Josh',last:'McDaniel',number:'555-666-7777',email:'joshmcdaniel@gmail.com',area:'Mount Morris, Ny'},
         {first:'Briana',last:'McDaniel',number:'888-999-1111',email:'brianamcdaniel@gmail.com',area:'Mount Morris, Ny'},
-        {first:'Finn',last:'McDaniel',number:'222-333-4444',email:'finnmcdaniel@gmail.com',area:'Mount Morris, Ny'},
+        {first:'Myles',last:'McDaniel',number:'222-333-4444',email:'finnmcdaniel@gmail.com',area:'Mount Morris, Ny'},
         {first:'Josh',last:'McDaniel',number:'555-666-7777',email:'joshmcdaniel@gmail.com',area:'Mount Morris, Ny'},
         {first:'Briana',last:'McDaniel',number:'888-999-1111',email:'brianamcdaniel@gmail.com',area:'Mount Morris, Ny'},
         {first:'Finn',last:'McDaniel',number:'222-333-4444',email:'finnmcdaniel@gmail.com',area:'Mount Morris, Ny'}
@@ -26,28 +26,50 @@ class App extends Component {
       addFormModal:false
     }
   };
+  componentWillMount(){
+    
+    const local = JSON.parse(localStorage.getItem('contact'));
+    if(local !== null){
+      this.setState({contactList:local});
+    }
+  }
+
+  addToLocalStorage = (newContact) =>{
+    if(localStorage.getItem('contact') == null){
+      localStorage.setItem('contact', JSON.stringify([...this.state.contactList]));
+    } else{
+      const oldLocalStorage = JSON.parse(localStorage.getItem('contact'));
+      localStorage.setItem('contact', JSON.stringify([...oldLocalStorage,newContact]));
+    }
+  }
+
+  clickOutsideModal = (e)=>{
+   if(e.target.id === 'addFormModel'){
+    this.modalToggle();
+    this.clearAddForm();
+    }
+  }
   
   modalToggle = () =>{
     !this.state.addFormModal ? this.setState({addFormModal:true}) : this.setState({addFormModal:false});
-    console.log(this.state.addFormModal)
+    this.clearAddForm();
   }
 
   inputChange = (e) =>{
     this.setState({[e.target.name]:e.target.value});
-    console.log(e.target.value)
   }
 
   addNewContact = (newContact) =>{
     if(this.state.first === '' || this.state.last === '' || this.state.number === '' || this.state.email === '' || this.state.location === ''){
       alert('Please fill in all fields');
-      return
     }else{
     const newContactList = [...this.state.contactList, newContact];
     this.setState({contactList:newContactList},()=>{
-      console.log(this.state.contactList);
+      console.log(this.state.contactList); 
+      this.addToLocalStorage(newContact);
       });
-      this.clearAddForm();
       this.modalToggle();
+
     }
   }
 
@@ -57,9 +79,8 @@ class App extends Component {
       last:'',
       number:'',
       email:'',
-      loation:''
+      location:''
     });
-    console.log(this.state.first)
   }
 
   onSubmitAddForm = (e) =>{
@@ -89,6 +110,8 @@ class App extends Component {
         number = {this.state.number}
         email = {this.state.email}
         location = {this.state.location}
+        clickOutsideModal = {this.clickOutsideModal}
+        clearAddForm = {this.clearAddForm}
         />
           <div id = 'main'>
           <HeroProfile />
