@@ -5,10 +5,10 @@ import './addForm.scss'
 
    const AddForm = ({
             addFormModal,
-            modalToggle, 
+            addFormModalToggle, 
             inputChange, 
             onSubmitAddForm, 
-            clickOutsideModal,
+            clickOutsideAddFormModal,
             clearAddForm,
             first,
             last,
@@ -17,10 +17,10 @@ import './addForm.scss'
             location
         })=>{ 
        return(
-        <div id={addFormModal?'addFormModel': 'closeAddFormModel'} onClick={clickOutsideModal}>
+        <div id={addFormModal?'addFormModel': 'closeAddFormModel'} onClick={clickOutsideAddFormModal}>
             <div id='addForm'>
                 <div id='addFormBanner'>
-                    <button type = 'button' id ='closeBtn'><FontAwesomeIcon icon={faTimes} onClick={modalToggle}/></button> <h2>ADD CONTACT</h2> 
+                    <button type = 'button' id ='closeBtn'><FontAwesomeIcon icon={faTimes} onClick={addFormModalToggle}/></button> <h2>ADD CONTACT</h2> 
                 </div>
                 <form id = 'inputGroup'>
                     <h3 className = 'inputName'>First Name</h3>

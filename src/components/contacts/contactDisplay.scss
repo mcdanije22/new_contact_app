@@ -2,13 +2,11 @@
     font-size:5rem;
     color: white;
     clear:right;
-    text-align: center;
+    text-align: left;
+    padding-left:6rem;
 }
 
 #contactArea{
-    // display: flex;
-    // flex-wrap:wrap;
-    // justify-content: space-evenly;
     padding: 6rem 6rem;
     overflow: hidden;
     margin-bottom:10rem;
@@ -18,7 +16,7 @@
             color:white;
             padding-top:4.5rem;
         } 
-            .card{
+            .mobileList{
                 border-radius: 50%;
                 margin: 3rem 0;
                 margin-right:3rem;
@@ -30,7 +28,74 @@
 }
 
 hr{
-    // margin-bottom:2rem;
     clear: left;   
 }
 
+.cardModal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.4);
+    z-index: 1;
+    opacity: 1;
+    animation: show .5s ease;
+    overflow-X: hidden;
+    overflow-Y: auto;
+    .card{
+        background-color:#FFFFFF;
+        color: black;
+        width:75%;
+        height:70rem;
+        text-align: center;
+        border-radius: 5%;
+        font-size:3rem;
+        position: relative;
+    }
+    .cardBanner{
+            height:25rem;
+            font-size:2rem;
+            display:flex;
+            justify-content: space-between;
+            font-size:3rem;
+            background: rgb(59,69,102);
+            color:white;
+            position: absolute;
+            width:100%;
+           
+
+    }
+    .back,.edit{
+        margin-top:4rem;
+    }
+    .back{
+        margin-left: 2rem;
+    }
+    .edit{
+        margin-right: 2rem;
+    }
+
+    .contactCardModalImg{
+        border-radius: 50%;
+        height:350px;
+        width:350px;
+        border: .8rem black solid;   
+        position: absolute;
+        display: flex;
+        margin:12rem;
+    }
+    .cardContent{
+        margin-top:38rem;
+        .icon, p{
+            margin-top:3rem;
+        }
+        .icon{
+            float:left;
+            margin-left:3rem;
+        }
+    }
+}

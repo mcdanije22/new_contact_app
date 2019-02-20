@@ -23,16 +23,17 @@ class App extends Component {
       number: '',
       email:'',
       location:'',
-      addFormModal:false
+      addFormModal:false,
+      contactCardModal:false
     }
   };
+
   componentWillMount(){
-    
     const local = JSON.parse(localStorage.getItem('contact'));
     if(local !== null){
       this.setState({contactList:local});
     }
-  }
+  };
 
   addToLocalStorage = (newContact) =>{
     if(localStorage.getItem('contact') == null){
@@ -41,23 +42,26 @@ class App extends Component {
       const oldLocalStorage = JSON.parse(localStorage.getItem('contact'));
       localStorage.setItem('contact', JSON.stringify([...oldLocalStorage,newContact]));
     }
-  }
+  };
 
-  clickOutsideModal = (e)=>{
+  //add form modal logal 
+  clickOutsideAddFormModal = (e)=>{
    if(e.target.id === 'addFormModel'){
-    this.modalToggle();
+    this.addFormModalToggle();
     this.clearAddForm();
     }
-  }
-  
-  modalToggle = () =>{
+  };
+  addFormModalToggle = () =>{
     !this.state.addFormModal ? this.setState({addFormModal:true}) : this.setState({addFormModal:false});
     this.clearAddForm();
-  }
+  };
+  //add form modal logal end
 
+
+  //adding contact logic
   inputChange = (e) =>{
     this.setState({[e.target.name]:e.target.value});
-  }
+  };
 
   addNewContact = (newContact) =>{
     if(this.state.first === '' || this.state.last === '' || this.state.number === '' || this.state.email === '' || this.state.location === ''){
@@ -68,10 +72,9 @@ class App extends Component {
       console.log(this.state.contactList); 
       this.addToLocalStorage(newContact);
       });
-      this.modalToggle();
-
+      this.addFormModalToggle();
     }
-  }
+  };
 
   clearAddForm = () =>{
     this.setState({
@@ -81,7 +84,7 @@ class App extends Component {
       email:'',
       location:''
     });
-  }
+  };
 
   onSubmitAddForm = (e) =>{
     e.preventDefault();
@@ -93,8 +96,9 @@ class App extends Component {
       location:this.state.location
     });
     this.addNewContact(newContact);
-  }
- 
+  };
+   //adding contact logic ends
+
   
   render() {
     
@@ -102,7 +106,7 @@ class App extends Component {
       <div className="App">
         <AddForm 
         addFormModal = {this.state.addFormModal}
-        modalToggle = {this.modalToggle}
+        addFormModalToggle = {this.addFormModalToggle}
         inputChange = {this.inputChange}
         onSubmitAddForm = {this.onSubmitAddForm}
         first = {this.state.first}
@@ -110,18 +114,19 @@ class App extends Component {
         number = {this.state.number}
         email = {this.state.email}
         location = {this.state.location}
-        clickOutsideModal = {this.clickOutsideModal}
+        clickOutsideAddFormModal = {this.clickOutsideAddFormModal}
         clearAddForm = {this.clearAddForm}
         />
           <div id = 'main'>
           <HeroProfile />
             <h1 id='contactCount'>
-             <span id='contactCount'>{this.state.contactList.length}</span> Contacts 
+             {/* <span id='contactCount'>{this.state.contactList.length}</span>  */}
+             Contacts 
             </h1>
           <ContactDisplay 
             contactList = {this.state.contactList}
           />  
-          <NavigationBar modalToggle = {this.modalToggle}/>
+          <NavigationBar modalToggle = {this.addFormModalToggle}/>
            </div> 
         </div>
     );

@@ -1,5 +1,5 @@
 import React from 'react';
-import ContactCard from './ContactCard';
+import ContactLine from './ContactLine';
 import './contactDisplay.scss';
 
 const ContactDisplay = ({contactList})=>{
@@ -7,7 +7,7 @@ const ContactDisplay = ({contactList})=>{
     return(
        <div id='contactArea'>
             {contactList.map((person,i)=>{
-                return <ContactCard 
+                return <ContactLine 
                 key={i} 
                 contact={person}   
                     />
