@@ -24,7 +24,8 @@ class App extends Component {
       email:'',
       location:'',
       addFormModal:false,
-      contactCardModal:false
+      contactCardModal:false,
+      contactModalId:''
     }
   };
 
@@ -99,6 +100,9 @@ class App extends Component {
   };
    //adding contact logic ends
 
+  contactTest=(e)=>{
+    this.setState({contactModalId:e.target.id});
+  }
   
   render() {
     
@@ -125,6 +129,8 @@ class App extends Component {
             </h1>
           <ContactDisplay 
             contactList = {this.state.contactList}
+            contactTest = {this.contactTest}
+            contactModalId={this.state.contactModalId}
           />  
           <NavigationBar modalToggle = {this.addFormModalToggle}/>
            </div> 

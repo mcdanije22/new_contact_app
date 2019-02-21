@@ -30,7 +30,9 @@
 hr{
     clear: left;   
 }
-
+.closeCardModal{
+    display:none;
+}
 .cardModal{
     display: flex;
     align-items: center;

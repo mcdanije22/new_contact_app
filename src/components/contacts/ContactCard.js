@@ -15,17 +15,19 @@ const ContactCard = ({
             last,
             number,
             email,
-            area
+            area,
+            id,
+            contactModalId
         }) =>{
-    return(
-    <div className = 'cardModal'>
+            console.log(contactModalId)
+    return(   
+    <div className = {contactModalId === id ? 'cardModal' : 'closeCardModal'} id ={id}>
         <div className = 'card'>
         <div className = 'cardBanner'>
-        {/* <FontAwesomeIcon className='delete' icon={faTrash} /> */}
         <p> <FontAwesomeIcon className='back' icon={faChevronLeft} /> Back </p>
         <FontAwesomeIcon className='edit' icon={faUserEdit} />
         </div>
-        
+
         <input type='image' className='contactCardModalImg' src={photo} alt='current user profile picture'/>
             <div className='cardContent'>
                 <h1>{first} {last}</h1>
