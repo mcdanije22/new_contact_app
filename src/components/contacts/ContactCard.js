@@ -15,16 +15,19 @@ const ContactCard = ({
             last,
             number,
             email,
-            area,
+            location,
             id,
-            contactModalId
+            contactModalId,
+            contactCardModal,
+            showContactCardModal,
+            clickOutsideContactCardModal
         }) =>{
-            console.log(contactModalId)
     return(   
-    <div className = {contactModalId === id ? 'cardModal' : 'closeCardModal'} id ={id}>
+        <div className = {contactCardModal && contactModalId == id?  'cardModal' : 'closeCardModal'} id ={id} onClick={clickOutsideContactCardModal}>
         <div className = 'card'>
         <div className = 'cardBanner'>
-        <p> <FontAwesomeIcon className='back' icon={faChevronLeft} /> Back </p>
+        <p> <FontAwesomeIcon className='back' icon={faChevronLeft} onClick={showContactCardModal} /><a onClick={showContactCardModal}> Back</a>  </p>
+
         <FontAwesomeIcon className='edit' icon={faUserEdit} />
         </div>
 
@@ -33,7 +36,7 @@ const ContactCard = ({
                 <h1>{first} {last}</h1>
                 <FontAwesomeIcon className='icon' icon={faMobileAlt} /><p>{number}</p>
                 <FontAwesomeIcon className='icon' icon={faEnvelope} /><p>{email}</p>
-                <FontAwesomeIcon className='icon' icon={faCity} /><p>{area}</p>
+                <FontAwesomeIcon className='icon' icon={faCity} /><p>{location}</p>
                 </div>
             </div>
     </div>

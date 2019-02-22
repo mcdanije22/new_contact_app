@@ -11,12 +11,12 @@ class App extends Component {
     super(props);
     this.state={
       contactList: [
-        {first:'Josh',last:'McDaniel',number:'555-666-7777',email:'joshmcdaniel@gmail.com',area:'Mount Morris, Ny'},
-        {first:'Briana',last:'McDaniel',number:'888-999-1111',email:'brianamcdaniel@gmail.com',area:'Mount Morris, Ny'},
-        {first:'Myles',last:'McDaniel',number:'222-333-4444',email:'finnmcdaniel@gmail.com',area:'Mount Morris, Ny'},
-        {first:'Josh',last:'McDaniel',number:'555-666-7777',email:'joshmcdaniel@gmail.com',area:'Mount Morris, Ny'},
-        {first:'Briana',last:'McDaniel',number:'888-999-1111',email:'brianamcdaniel@gmail.com',area:'Mount Morris, Ny'},
-        {first:'Finn',last:'McDaniel',number:'222-333-4444',email:'finnmcdaniel@gmail.com',area:'Mount Morris, Ny'}
+        {first:'Josh',last:'McDaniel',number:'555-666-7777',email:'joshmcdaniel@gmail.com',location:'Mount Morris, Ny'},
+        {first:'Briana',last:'McDaniel',number:'888-999-1111',email:'brianamcdaniel@gmail.com',location:'Mount Morris, Ny'},
+        {first:'Myles',last:'McDaniel',number:'222-333-4444',email:'finnmcdaniel@gmail.com',location:'Mount Morris, Ny'},
+        {first:'Josh',last:'McDaniel',number:'555-666-7777',email:'joshmcdaniel@gmail.com',location:'Mount Morris, Ny'},
+        {first:'Briana',last:'McDaniel',number:'888-999-1111',email:'brianamcdaniel@gmail.com',location:'Mount Morris, Ny'},
+        {first:'Finn',last:'McDaniel',number:'222-333-4444',email:'finnmcdaniel@gmail.com',location:'Mount Morris, Ny'}
       ],
       first:'',
       last: '',
@@ -100,10 +100,23 @@ class App extends Component {
   };
    //adding contact logic ends
 
-  contactTest=(e)=>{
-    this.setState({contactModalId:e.target.id});
+   //logic for toggling contact card modal 
+  showContactCardModal=(e)=>{
+    this.setState({contactModalId:e.target.id}, ()=>{
+      console.log(this.state.contactModalId);
+    });
+    this.setState({contactCardModal:this.state.contactCardModal?false:true},()=>{
+      console.log(this.state.contactCardModal)
+    })
   }
-  
+
+  clickOutsideContactCardModal = (e)=>{
+    if(e.target.className === 'cardModal'){
+      this.setState({contactCardModal:this.state.contactCardModal?false:true})
+      }   
+    };
+
+  // contact card modal end 
   render() {
     
     return (
@@ -124,13 +137,14 @@ class App extends Component {
           <div id = 'main'>
           <HeroProfile />
             <h1 id='contactCount'>
-             {/* <span id='contactCount'>{this.state.contactList.length}</span>  */}
              Contacts 
             </h1>
           <ContactDisplay 
             contactList = {this.state.contactList}
-            contactTest = {this.contactTest}
+            showContactCardModal = {this.showContactCardModal}
             contactModalId={this.state.contactModalId}
+            contactCardModal={this.state.contactCardModal}
+            clickOutsideContactCardModal = {this.clickOutsideContactCardModal}
           />  
           <NavigationBar modalToggle = {this.addFormModalToggle}/>
            </div> 

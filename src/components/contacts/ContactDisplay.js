@@ -2,7 +2,13 @@ import React from 'react';
 import ContactLine from './ContactLine';
 import './contactDisplay.scss';
 
-const ContactDisplay = ({contactList,contactTest,contactModalId})=>{
+const ContactDisplay = ({
+    contactList,
+    showContactCardModal,
+    contactModalId, 
+    contactCardModal,
+    clickOutsideContactCardModal
+})=>{
 
     return(
        <div id='contactArea'>
@@ -11,8 +17,10 @@ const ContactDisplay = ({contactList,contactTest,contactModalId})=>{
                 key={i} 
                 contact={person} 
                 id = {i}
-                contactTest = {contactTest}
+                showContactCardModal = {showContactCardModal}
                 contactModalId={contactModalId}
+                contactCardModal = {contactCardModal}
+                clickOutsideContactCardModal = {clickOutsideContactCardModal}
                     />
                 })
             }

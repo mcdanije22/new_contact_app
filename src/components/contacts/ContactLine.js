@@ -2,8 +2,15 @@ import React from 'react';
 import photo from './contact_1.jpg';
 import ContactCard from './ContactCard';
 
-const ContactLine = ({contact,id,contactTest,contactModalId})=>{
-const {first, last, number, email, area} = contact;
+const ContactLine = ({
+    contact,
+    id,
+    showContactCardModal,
+    contactModalId,
+    contactCardModal,
+    clickOutsideContactCardModal
+})=>{
+const {first, last, number, email, location} = contact;
 
     return(
        <React.Fragment>
@@ -12,11 +19,14 @@ const {first, last, number, email, area} = contact;
         last = {last}
         number = {number}
         email = {email}
-        area = {area}
+        location = {location}
         id={id}
         contactModalId = {contactModalId}
+        contactCardModal = {contactCardModal}
+        showContactCardModal = {showContactCardModal}
+        clickOutsideContactCardModal = {clickOutsideContactCardModal}
         />  
-        <input onClick={contactTest} type='image' id={id} className='mobileList' src={photo} alt='current user profile picture'/>
+        <input onClick={showContactCardModal} type='image' id={id} className='mobileList' src={photo} alt='current user profile picture'/>
             <h2>{first} {last}</h2>
             <hr />
 
