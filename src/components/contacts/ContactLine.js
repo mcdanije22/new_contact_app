@@ -29,7 +29,6 @@ const {first, last, number, email, location} = contact;
         <input onClick={showContactCardModal} type='image' id={id} className='mobileList' src={photo} alt='current user profile picture'/>
             <h2>{first} {last}</h2>
             <hr />
-
        </React.Fragment>
     )
 }  

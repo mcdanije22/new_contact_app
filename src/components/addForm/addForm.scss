@@ -5,7 +5,9 @@
     width:75%;
     height:70rem;
     text-align: center;
-    border-radius: 5%;
+    border-radius: 4rem;
+    box-shadow: 10px 10px 5px  rgba(0,0,0,0.4);
+
         #inputGroup{
             margin-top:4rem;
             .inputName{
@@ -17,37 +19,37 @@
         #addFormBanner{
             background-color:#F0F0F0;
             height:8rem;
-            border-radius: 5%;
-            font-size:2rem;
+            border-radius: 4rem 4rem 0 0;
+            font-size:1.5rem;
             h2{
-                padding-top:2rem;
+                padding-top:2.5rem;
                 margin-left:6rem;
             }
         }
         .addInput{
-            padding:1%;
             width: 60%;
-            margin: 2%;
-            text-align:left;
+            margin: 3%;
+            text-align:center;
             font-size:2rem;
             border: none;
-            background:transparent;
             border-bottom: 1px solid;
             outline:none;
         }
         #addtBtn, #clearBtn{
             border: 1px black solid;
-            font-size:3rem;
-            padding:1rem;
+            font-size:2rem;
+            padding:2rem;
             margin: 1.5rem 0 .5rem 0;
-            width:70%
-           
+            border-radius: 2.5rem;
+            color:white;
         }  
         #addtBtn{
-            background-color:#4CAF50
+            background-color:rgb(92, 207, 142); 
+            width:70%;
         }
         #clearBtn{
-            background-color:#f44336
+            background-color:#f44336;
+            width:50%;
         }
         #closeBtn{
             font-size:3rem;

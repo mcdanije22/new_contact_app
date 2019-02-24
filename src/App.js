@@ -45,7 +45,9 @@ class App extends Component {
     }
   };
 
-  //add form modal logal 
+  /******** 
+   * add form modal logic 
+   */
   clickOutsideAddFormModal = (e)=>{
    if(e.target.id === 'addFormModel'){
     this.addFormModalToggle();
@@ -56,10 +58,13 @@ class App extends Component {
     !this.state.addFormModal ? this.setState({addFormModal:true}) : this.setState({addFormModal:false});
     this.clearAddForm();
   };
-  //add form modal logal end
+/******** 
+   * add form modal logic end
+   */
 
-
-  //adding contact logic
+   /******** 
+   * adding contact logic 
+   */
   inputChange = (e) =>{
     this.setState({[e.target.name]:e.target.value});
   };
@@ -98,9 +103,15 @@ class App extends Component {
     });
     this.addNewContact(newContact);
   };
-   //adding contact logic ends
+ /******** 
+   * adding contact logic ends
+   */
 
-   //logic for toggling contact card modal 
+
+
+  /******** 
+   * logic for toggling contact card modal 
+   */
   showContactCardModal=(e)=>{
     this.setState({contactModalId:e.target.id}, ()=>{
       console.log(this.state.contactModalId);
@@ -115,8 +126,12 @@ class App extends Component {
       this.setState({contactCardModal:this.state.contactCardModal?false:true})
       }   
     };
+ /******** 
+   * logic for toggling contact card modal ends
+   */
 
-  // contact card modal end 
+  //edit current contact
+
   render() {
     
     return (

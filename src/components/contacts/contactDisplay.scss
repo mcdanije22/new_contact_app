@@ -92,6 +92,7 @@ hr{
     }
     .cardContent{
         margin-top:38rem;
+        padding: 0 2rem;
         .icon, p{
             margin-top:3rem;
         }
@@ -100,4 +101,33 @@ hr{
             margin-left:3rem;
         }
     }
+}
+.cardEdit{
+    color:black;
+    margin-top:4rem;
+        .editInput{
+            width: 70%;
+            margin: 3%;
+            text-align:center;
+            font-size:2rem;
+            border: none;
+            border-bottom: 1px solid;
+            outline:none;
+          
+        }
+        .editCancel, .submitEditButton{
+            border: 1px black solid;
+            font-size:2.5rem;
+            padding:1rem;
+            margin: 1rem 1rem 0 1rem;
+            border-radius: 2.5rem;
+            color:white;
+            width: 30%
+        }
+        .editCancel{
+            background-color:#f44336;
+        }
+        .submitEditButton{
+            background-color:rgb(92, 207, 142); 
+        }
 }

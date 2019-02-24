@@ -7,6 +7,7 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faCity } from '@fortawesome/free-solid-svg-icons';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { faUserEdit } from '@fortawesome/free-solid-svg-icons';
+import EditContactForm from './EditContactForm';
 
 
 
@@ -23,21 +24,35 @@ const ContactCard = ({
             clickOutsideContactCardModal
         }) =>{
     return(   
+        
         <div className = {contactCardModal && contactModalId == id?  'cardModal' : 'closeCardModal'} id ={id} onClick={clickOutsideContactCardModal}>
-        <div className = 'card'>
-        <div className = 'cardBanner'>
-        <p> <FontAwesomeIcon className='back' icon={faChevronLeft} onClick={showContactCardModal} /><a onClick={showContactCardModal}> Back</a>  </p>
+            <div className = 'card'>
+                <div className = 'cardBanner'>
+                    <p> <FontAwesomeIcon className='back' icon={faChevronLeft} onClick={showContactCardModal} /><a onClick={showContactCardModal}> Back</a>  </p>
 
-        <FontAwesomeIcon className='edit' icon={faUserEdit} />
-        </div>
-
-        <input type='image' className='contactCardModalImg' src={photo} alt='current user profile picture'/>
-            <div className='cardContent'>
-                <h1>{first} {last}</h1>
-                <FontAwesomeIcon className='icon' icon={faMobileAlt} /><p>{number}</p>
-                <FontAwesomeIcon className='icon' icon={faEnvelope} /><p>{email}</p>
-                <FontAwesomeIcon className='icon' icon={faCity} /><p>{location}</p>
+                    <FontAwesomeIcon className='edit' icon={faUserEdit} />
                 </div>
+
+                <input type='image' className='contactCardModalImg' src={photo} alt='current user profile picture'/>
+                    <div className='cardContent'>
+                        <div className='showContactContent' style={{display:'none'}}>
+                        <h1>{first} {last}</h1>
+                        <FontAwesomeIcon className='icon' icon={faMobileAlt} /><p>{number}</p>
+                        <FontAwesomeIcon className='icon' icon={faEnvelope} /><p>{email}</p>
+                        <FontAwesomeIcon className='icon' icon={faCity} /><p>{location}</p>
+                        </div>
+                        <div className='cardEdit'>
+                            <EditContactForm 
+                                first={first}
+                                last={last}
+                                number={number}
+                                email={email}
+                                location={location}
+                                id={id}
+                            />
+                        </div>
+                </div>
+              
             </div>
     </div>
     )}
