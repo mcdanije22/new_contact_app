@@ -21,7 +21,9 @@ const ContactCard = ({
             contactModalId,
             contactCardModal,
             showContactCardModal,
-            clickOutsideContactCardModal
+            clickOutsideContactCardModal,
+            editCurrentContact,
+            inputChange
         }) =>{
     return(   
         
@@ -49,6 +51,8 @@ const ContactCard = ({
                                 email={email}
                                 location={location}
                                 id={id}
+                                editCurrentContact= {editCurrentContact}
+                                inputChange = {inputChange}
                             />
                         </div>
                 </div>

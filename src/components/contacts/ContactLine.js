@@ -8,7 +8,9 @@ const ContactLine = ({
     showContactCardModal,
     contactModalId,
     contactCardModal,
-    clickOutsideContactCardModal
+    clickOutsideContactCardModal,
+    editCurrentContact,
+    inputChange
 })=>{
 const {first, last, number, email, location} = contact;
 
@@ -25,6 +27,8 @@ const {first, last, number, email, location} = contact;
         contactCardModal = {contactCardModal}
         showContactCardModal = {showContactCardModal}
         clickOutsideContactCardModal = {clickOutsideContactCardModal}
+        editCurrentContact = {editCurrentContact}
+        inputChange = {inputChange}
         />  
         <input onClick={showContactCardModal} type='image' id={id} className='mobileList' src={photo} alt='current user profile picture'/>
             <h2>{first} {last}</h2>

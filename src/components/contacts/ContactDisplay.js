@@ -7,7 +7,9 @@ const ContactDisplay = ({
     showContactCardModal,
     contactModalId, 
     contactCardModal,
-    clickOutsideContactCardModal
+    clickOutsideContactCardModal,
+    editCurrentContact,
+    inputChange
 })=>{
 
     return(
@@ -21,6 +23,8 @@ const ContactDisplay = ({
                 contactModalId={contactModalId}
                 contactCardModal = {contactCardModal}
                 clickOutsideContactCardModal = {clickOutsideContactCardModal}
+                editCurrentContact = {editCurrentContact}
+                inputChange = {inputChange}
                     />
                 })
             }

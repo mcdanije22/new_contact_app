@@ -67,6 +67,7 @@ class App extends Component {
    */
   inputChange = (e) =>{
     this.setState({[e.target.name]:e.target.value});
+    console.log(this.state.first)
   };
 
   addNewContact = (newContact) =>{
@@ -130,7 +131,54 @@ class App extends Component {
    * logic for toggling contact card modal ends
    */
 
-  //edit current contact
+  /********
+   * edit current contact
+  */
+
+  editCurrentContact=(e)=>{
+    e.preventDefault();
+    const newContact = Object.assign({}, {
+      first:this.state.first, 
+      last:this.state.last, 
+      number:this.state.number, 
+      email:this.state.email,
+      location:this.state.location
+    });
+
+    const editedContactList = [...this.state.contactList];
+    editedContactList[this.state.contactModalId] = newContact;
+    this.setState({contactList:editedContactList}, 
+    );
+
+    this.setState({contactCardModal:this.state.contactCardModal?false:true},()=>{
+      console.log(this.state.contactCardModal)
+    });
+
+    this.editLocalStorage(editedContactList);
+
+    this.clearAddForm();
+  }
+  editLocalStorage = (editedContactList)=>{
+    if(localStorage.getItem('contact') == null){
+      localStorage.setItem('contact', JSON.stringify([...this.state.editedContactList]));
+    } else{
+      const oldLocalStorage = JSON.parse(localStorage.getItem('contact'));
+      localStorage.setItem('contact', JSON.stringify([...editedContactList]));
+    }
+  }
+ /********
+   * edit current contact end
+  */
+
+
+//  addToLocalStorage = (newContact) =>{
+//   if(localStorage.getItem('contact') == null){
+//     localStorage.setItem('contact', JSON.stringify([...this.state.contactList]));
+//   } else{
+//     const oldLocalStorage = JSON.parse(localStorage.getItem('contact'));
+//     localStorage.setItem('contact', JSON.stringify([...oldLocalStorage,newContact]));
+//   }
+// };
 
   render() {
     
@@ -160,6 +208,8 @@ class App extends Component {
             contactModalId={this.state.contactModalId}
             contactCardModal={this.state.contactCardModal}
             clickOutsideContactCardModal = {this.clickOutsideContactCardModal}
+            editCurrentContact = {this.editCurrentContact}
+            inputChange = {this.inputChange}
           />  
           <NavigationBar modalToggle = {this.addFormModalToggle}/>
            </div> 
