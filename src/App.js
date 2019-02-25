@@ -147,23 +147,27 @@ class App extends Component {
 
     const editedContactList = [...this.state.contactList];
     editedContactList[this.state.contactModalId] = newContact;
-    this.setState({contactList:editedContactList}, 
-    );
+    this.setState({contactList:editedContactList},()=>{
+      this.editLocalStorage(newContact);
+    });
+
 
     this.setState({contactCardModal:this.state.contactCardModal?false:true},()=>{
       console.log(this.state.contactCardModal)
     });
 
-    this.editLocalStorage(editedContactList);
 
     this.clearAddForm();
   }
-  editLocalStorage = (editedContactList)=>{
+  editLocalStorage = (newContact)=>{
+    console.log(this.state.contactModalId)
+
     if(localStorage.getItem('contact') == null){
-      localStorage.setItem('contact', JSON.stringify([...this.state.editedContactList]));
+      localStorage.setItem('contact', JSON.stringify([...this.state.contactList]));
     } else{
       const oldLocalStorage = JSON.parse(localStorage.getItem('contact'));
-      localStorage.setItem('contact', JSON.stringify([...editedContactList]));
+      oldLocalStorage[this.state.contactModalId] = newContact
+      localStorage.setItem('contact', JSON.stringify([...oldLocalStorage]));
     }
   }
  /********
@@ -171,14 +175,7 @@ class App extends Component {
   */
 
 
-//  addToLocalStorage = (newContact) =>{
-//   if(localStorage.getItem('contact') == null){
-//     localStorage.setItem('contact', JSON.stringify([...this.state.contactList]));
-//   } else{
-//     const oldLocalStorage = JSON.parse(localStorage.getItem('contact'));
-//     localStorage.setItem('contact', JSON.stringify([...oldLocalStorage,newContact]));
-//   }
-// };
+
 
   render() {
     
