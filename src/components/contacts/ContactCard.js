@@ -23,7 +23,13 @@ const ContactCard = ({
             showContactCardModal,
             clickOutsideContactCardModal,
             editCurrentContact,
-            inputChange
+            clearAddForm,
+            inputChange,
+            firstInput,
+            lastInput,
+            numberInput,
+            emailInput,
+            locationInput
         }) =>{
     return(   
         
@@ -52,7 +58,13 @@ const ContactCard = ({
                                 location={location}
                                 id={id}
                                 editCurrentContact= {editCurrentContact}
+                                clearAddForm={clearAddForm}
                                 inputChange = {inputChange}
+                                firstInput = {firstInput}
+                                lastInput={lastInput}
+                                numberInput={numberInput}
+                                emailInput={emailInput}
+                                locationInput={locationInput}
                             />
                         </div>
                 </div>

@@ -120,6 +120,7 @@ class App extends Component {
     this.setState({contactCardModal:this.state.contactCardModal?false:true},()=>{
       console.log(this.state.contactCardModal)
     })
+    this.clearAddForm();
   }
 
   clickOutsideContactCardModal = (e)=>{
@@ -138,27 +139,26 @@ class App extends Component {
   editCurrentContact=(e)=>{
     e.preventDefault();
     const newContact = Object.assign({}, {
-      first:this.state.first, 
-      last:this.state.last, 
-      number:this.state.number, 
-      email:this.state.email,
-      location:this.state.location
+      first:this.state.first || this.state.contactList[this.state.contactModalId].first, 
+      last:this.state.last || this.state.contactList[this.state.contactModalId].last, 
+      number:this.state.number || this.state.contactList[this.state.contactModalId].number, 
+      email:this.state.email || this.state.contactList[this.state.contactModalId].email,
+      location:this.state.location || this.state.contactList[this.state.contactModalId].location
     });
 
     const editedContactList = [...this.state.contactList];
     editedContactList[this.state.contactModalId] = newContact;
     this.setState({contactList:editedContactList},()=>{
-      this.editLocalStorage(newContact);
+    this.editLocalStorage(newContact);
     });
 
 
     this.setState({contactCardModal:this.state.contactCardModal?false:true},()=>{
       console.log(this.state.contactCardModal)
     });
-
-
     this.clearAddForm();
   }
+  
   editLocalStorage = (newContact)=>{
     console.log(this.state.contactModalId)
 
@@ -207,6 +207,12 @@ class App extends Component {
             clickOutsideContactCardModal = {this.clickOutsideContactCardModal}
             editCurrentContact = {this.editCurrentContact}
             inputChange = {this.inputChange}
+            clearAddForm={this.clearAddForm}
+            firstInput={this.state.first}
+            lastInput={this.state.last}
+            numberInput={this.state.number}
+            emailInput={this.state.email}
+            locationInput={this.state.location}
           />  
           <NavigationBar modalToggle = {this.addFormModalToggle}/>
            </div> 

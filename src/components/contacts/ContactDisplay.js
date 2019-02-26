@@ -9,7 +9,13 @@ const ContactDisplay = ({
     contactCardModal,
     clickOutsideContactCardModal,
     editCurrentContact,
-    inputChange
+    inputChange,
+    firstInput,
+    lastInput,
+    numberInput,
+    emailInput,
+    locationInput,
+    clearAddForm
 })=>{
 
     return(
@@ -24,7 +30,13 @@ const ContactDisplay = ({
                 contactCardModal = {contactCardModal}
                 clickOutsideContactCardModal = {clickOutsideContactCardModal}
                 editCurrentContact = {editCurrentContact}
+                clearAddForm={clearAddForm}
                 inputChange = {inputChange}
+                firstInput = {firstInput}
+                lastInput={lastInput}
+                numberInput={numberInput}
+                emailInput={emailInput}
+                locationInput={locationInput}
                     />
                 })
             }
