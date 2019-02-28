@@ -4,20 +4,31 @@ import { faSearch, faUserPlus, faStar } from '@fortawesome/free-solid-svg-icons'
 import './navigationBar.scss';
 
 
-const NavigationBar = ({modalToggle})=>{
+const NavigationBar = ({
+    modalToggle,
+    toggleSearchField
+})=>{
 
     return(
         <div id ='nav'>
-            <button type='button' id ='searchBtn'>
+            <button 
+            type='button' 
+            id ='searchBtn' 
+            onClick={toggleSearchField}>
             <FontAwesomeIcon icon={faSearch} />
             </button>
 
-            <button type='button' id ='addBtn' onClick={modalToggle}>
+            <button 
+            type='button' 
+            id ='addBtn' 
+            onClick={modalToggle}>
             <FontAwesomeIcon icon={faUserPlus} />
             </button>
             
 
-            <button type='button' id ='favBtn'>
+            <button 
+            type='button' 
+            id ='favBtn'>
             <FontAwesomeIcon icon={faStar} />
             </button>
 

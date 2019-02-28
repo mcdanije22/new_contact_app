@@ -4,7 +4,7 @@ import NavigationBar from './components/navigationBar/NavigationBar';
 import HeroProfile from './components/heroProfile/HeroProfile';
 import ContactDisplay from './components/contacts/ContactDisplay';
 import AddForm from './components/addForm/AddForm';
-
+import SearchField from './components/searchField/SearchField'
 
 class App extends Component {
   constructor(props){
@@ -25,7 +25,10 @@ class App extends Component {
       location:'',
       addFormModal:false,
       contactCardModal:false,
-      contactModalId:''
+      contactModalId:'',
+      editContactForm:false,
+      searchField:'',
+      searchFieldToggle:false
     }
   };
 
@@ -67,7 +70,6 @@ class App extends Component {
    */
   inputChange = (e) =>{
     this.setState({[e.target.name]:e.target.value});
-    console.log(this.state.first)
   };
 
   addNewContact = (newContact) =>{
@@ -120,6 +122,7 @@ class App extends Component {
     this.setState({contactCardModal:this.state.contactCardModal?false:true},()=>{
       console.log(this.state.contactCardModal)
     })
+    this.setState({editContactForm:false})
     this.clearAddForm();
   }
 
@@ -170,15 +173,47 @@ class App extends Component {
       localStorage.setItem('contact', JSON.stringify([...oldLocalStorage]));
     }
   }
+
+  editContactFormToggle=()=>{
+    this.setState({
+      editContactForm: this.state.editContactForm?false:true
+    })
+  }
  /********
    * edit current contact end
   */
 
+  /****** 
+   * searchField logic
+  */
+  searchFieldInputChange=(e)=>{
+    this.setState({searchField:e.target.value})
+  };
 
+  toggleSearchField=()=>{
+    this.setState({
+      searchFieldToggle: this.state.searchFieldToggle?false:true,
+      searchField:''
+    })
+  }
+   /****** 
+   * searchField logic end
+  */
+
+ 
 
 
   render() {
-    
+    const {contactList, searchField}= this.state;
+    console.log(contactList,searchField)
+    const filteredContactList = contactList.filter((contacts)=>{
+         return(
+          contacts.first.toLowerCase().includes(searchField.toLowerCase()) 
+          ||
+          contacts.last.toLowerCase().includes(searchField.toLowerCase())
+          )
+        })
+        
     return (
       <div className="App">
         <AddForm 
@@ -200,7 +235,7 @@ class App extends Component {
              Contacts 
             </h1>
           <ContactDisplay 
-            contactList = {this.state.contactList}
+            contactList = {filteredContactList}
             showContactCardModal = {this.showContactCardModal}
             contactModalId={this.state.contactModalId}
             contactCardModal={this.state.contactCardModal}
@@ -213,8 +248,18 @@ class App extends Component {
             numberInput={this.state.number}
             emailInput={this.state.email}
             locationInput={this.state.location}
-          />  
-          <NavigationBar modalToggle = {this.addFormModalToggle}/>
+            editContactForm={this.state.editContactForm}
+            editContactFormToggle={this.editContactFormToggle}
+          /> 
+          <SearchField 
+            searchField = {this.state.searchField}
+            inputChange={this.inputChange}
+            searchFieldToggle={this.state.searchFieldToggle}
+          />
+          <NavigationBar 
+          modalToggle = {this.addFormModalToggle}
+          toggleSearchField={this.toggleSearchField}  
+          />
            </div> 
         </div>
     );

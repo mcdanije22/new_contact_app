@@ -16,10 +16,11 @@ const ContactLine = ({
     lastInput,
     numberInput,
     emailInput,
-    locationInput
+    locationInput,
+    editContactForm,
+    editContactFormToggle
 })=>{
 const {first, last, number, email, location} = contact;
-
     return(
        <React.Fragment>
         <ContactCard 
@@ -41,6 +42,8 @@ const {first, last, number, email, location} = contact;
         numberInput={numberInput}
         emailInput={emailInput}
         locationInput={locationInput}
+        editContactForm={editContactForm}
+        editContactFormToggle={editContactFormToggle}
         />  
         <input onClick={showContactCardModal} type='image' id={id} className='mobileList' src={photo} alt='current user profile picture'/>
             <h2>{first} {last}</h2>

@@ -29,27 +29,28 @@ const ContactCard = ({
             lastInput,
             numberInput,
             emailInput,
-            locationInput
+            locationInput,
+            editContactForm,
+            editContactFormToggle
         }) =>{
     return(   
-        
         <div className = {contactCardModal && contactModalId == id?  'cardModal' : 'closeCardModal'} id ={id} onClick={clickOutsideContactCardModal}>
             <div className = 'card'>
                 <div className = 'cardBanner'>
                     <p> <FontAwesomeIcon className='back' icon={faChevronLeft} onClick={showContactCardModal} /><a onClick={showContactCardModal}> Back</a>  </p>
 
-                    <FontAwesomeIcon className='edit' icon={faUserEdit} />
+                    <FontAwesomeIcon className='edit' onClick={editContactFormToggle} icon={faUserEdit} />
                 </div>
 
                 <input type='image' className='contactCardModalImg' src={photo} alt='current user profile picture'/>
-                    <div className='cardContent'>
-                        <div className='showContactContent' style={{display:'none'}}>
-                        <h1>{first} {last}</h1>
+                    <div className='cardContent' >
+                        <div className='showContactContent' style={{ display: editContactForm?'none':'' }} >
+                        <h1 className='name'>{first} {last}</h1>
                         <FontAwesomeIcon className='icon' icon={faMobileAlt} /><p>{number}</p>
                         <FontAwesomeIcon className='icon' icon={faEnvelope} /><p>{email}</p>
                         <FontAwesomeIcon className='icon' icon={faCity} /><p>{location}</p>
                         </div>
-                        <div className='cardEdit'>
+                        <div className='cardEdit' style={{ display: !editContactForm? 'none':'' }}  >
                             <EditContactForm 
                                 first={first}
                                 last={last}
