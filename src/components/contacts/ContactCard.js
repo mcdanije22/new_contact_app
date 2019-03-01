@@ -2,11 +2,14 @@ import React from 'react';
 import './contactDisplay.scss';
 import photo from './contact_1.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMobileAlt } from '@fortawesome/free-solid-svg-icons';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { faCity } from '@fortawesome/free-solid-svg-icons';
-import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
-import { faUserEdit } from '@fortawesome/free-solid-svg-icons';
+import { 
+    faMobileAlt,
+    faEnvelope,
+    faCity,
+    faChevronLeft,
+    faUserEdit,
+    faTrash 
+} from '@fortawesome/free-solid-svg-icons';
 import EditContactForm from './EditContactForm';
 
 
@@ -31,14 +34,15 @@ const ContactCard = ({
             emailInput,
             locationInput,
             editContactForm,
-            editContactFormToggle
+            editContactFormToggle,
+            deleteContact
         }) =>{
     return(   
         <div className = {contactCardModal && contactModalId == id?  'cardModal' : 'closeCardModal'} id ={id} onClick={clickOutsideContactCardModal}>
             <div className = 'card'>
                 <div className = 'cardBanner'>
                     <p> <FontAwesomeIcon className='back' icon={faChevronLeft} onClick={showContactCardModal} /><a onClick={showContactCardModal}> Back</a>  </p>
-
+                    <FontAwesomeIcon className='delete' onClick={deleteContact} id={id} icon={faTrash} />
                     <FontAwesomeIcon className='edit' onClick={editContactFormToggle} icon={faUserEdit} />
                 </div>
 

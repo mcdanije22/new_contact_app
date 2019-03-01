@@ -4,7 +4,8 @@ import './searchField.scss';
 const SearchField = ({
     searchField,
     inputChange,
-    searchFieldToggle
+    searchFieldToggle,
+    clickOutsideSearchBar
 }) =>{
     return(
         <React.Fragment>
@@ -14,6 +15,7 @@ const SearchField = ({
             style={{display: searchFieldToggle? 'block' : 'none'}} 
             onChange={inputChange} 
             placeholder={'Search By Name'}
+            onClick={clickOutsideSearchBar}
             />
             {console.log(searchField)}
         </React.Fragment>

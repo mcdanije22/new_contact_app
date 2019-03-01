@@ -1,6 +1,7 @@
 import React from 'react';
 import photo from './contact_1.jpg';
 import ContactCard from './ContactCard';
+import Starred from './StarredList';
 
 const ContactLine = ({
     contact,
@@ -18,7 +19,8 @@ const ContactLine = ({
     emailInput,
     locationInput,
     editContactForm,
-    editContactFormToggle
+    editContactFormToggle,
+    deleteContact
 })=>{
 const {first, last, number, email, location} = contact;
     return(
@@ -44,10 +46,13 @@ const {first, last, number, email, location} = contact;
         locationInput={locationInput}
         editContactForm={editContactForm}
         editContactFormToggle={editContactFormToggle}
+        deleteContact={deleteContact.bind(this,id)}
         />  
-        <input onClick={showContactCardModal} type='image' id={id} className='mobileList' src={photo} alt='current user profile picture'/>
-            <h2>{first} {last}</h2>
-            <hr />
+            <div  onClick={showContactCardModal}>
+                <input onClick={showContactCardModal} type='image' id={id} className='mobileList' src={photo} alt='current user profile picture'/>
+                <h2>{first} {last}</h2>
+            </div>
+        <hr />
        </React.Fragment>
     )
 }  

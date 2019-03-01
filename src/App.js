@@ -91,7 +91,8 @@ class App extends Component {
       last:'',
       number:'',
       email:'',
-      location:''
+      location:'',
+      searchField:''
     });
   };
 
@@ -200,9 +201,27 @@ class App extends Component {
    * searchField logic end
   */
 
- 
+//  clickOutsideSearchBar = (e)=>{
+//   if(!e.target.id === 'searchFieldInput'){
+//     this.toggleSearchField();
+//     }   
+//   };
 
 
+  deleteContact=(id)=>{
+    const contacts = this.state.contactList;
+    contacts.splice(id, 1);
+    this.setState({contactList: contacts, contactCardModal:false});
+
+    localStorage.getItem('contact')
+    localStorage.setItem('contact', JSON.stringify([...this.state.contactList]));
+  }
+
+  showStarredList=()=>{
+    const starredList = this.state.contactList.filter((contact)=>{
+      return contact.starred === false;
+    })
+  }
   render() {
     const {contactList, searchField}= this.state;
     console.log(contactList,searchField)
@@ -215,7 +234,7 @@ class App extends Component {
         })
         
     return (
-      <div className="App">
+      <div className="App" >
         <AddForm 
         addFormModal = {this.state.addFormModal}
         addFormModalToggle = {this.addFormModalToggle}
@@ -250,11 +269,13 @@ class App extends Component {
             locationInput={this.state.location}
             editContactForm={this.state.editContactForm}
             editContactFormToggle={this.editContactFormToggle}
+            deleteContact={this.deleteContact}
           /> 
           <SearchField 
             searchField = {this.state.searchField}
             inputChange={this.inputChange}
             searchFieldToggle={this.state.searchFieldToggle}
+            clickOutsideSearchBar={this.clickOutsideSearchBar}
           />
           <NavigationBar 
           modalToggle = {this.addFormModalToggle}

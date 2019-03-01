@@ -17,7 +17,8 @@ const ContactDisplay = ({
     locationInput,
     clearAddForm,
     editContactForm,
-    editContactFormToggle
+    editContactFormToggle,
+    deleteContact
 })=>{
 
     return(
@@ -41,6 +42,7 @@ const ContactDisplay = ({
                 locationInput={locationInput}
                 editContactForm={editContactForm}
                 editContactFormToggle={editContactFormToggle}
+                deleteContact={deleteContact}
                     />
                 })
             }

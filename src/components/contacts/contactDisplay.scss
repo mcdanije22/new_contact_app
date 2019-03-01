@@ -71,7 +71,7 @@ hr{
            
 
     }
-    .back,.edit{
+    .back,.edit, .delete{
         margin-top:4rem;
     }
     .back{
@@ -79,6 +79,9 @@ hr{
     }
     .edit{
         margin-right: 2rem;
+    }
+    .delete{
+        margin-left:22rem;
     }
 
     .contactCardModalImg{
