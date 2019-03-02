@@ -1,20 +1,21 @@
 #contactCount{
-    font-size:5rem;
+    font-size:4rem;
     color: white;
     clear:right;
-    text-align: left;
-    padding-left:6rem;
+    text-align: center;
+    margin-top:3rem;
 }
 
 #contactArea{
     padding: 6rem 6rem;
     overflow: hidden;
     margin-bottom:10rem;
+    margin-top:4rem;
     
         h2{
             font-size: 3rem;
             color:white;
-            padding-top:4.5rem;
+            padding-top:4rem;
         } 
             .mobileList{
                 border-radius: 50%;
@@ -22,8 +23,8 @@
                 margin-right:3rem;
                 border: .2rem white solid;   
                 float:left;  
-                width:100px;
-                height:100px;          
+                width:80px;
+                height:80px;          
             }
 }
 

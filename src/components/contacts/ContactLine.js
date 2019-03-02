@@ -1,7 +1,6 @@
 import React from 'react';
 import photo from './contact_1.jpg';
 import ContactCard from './ContactCard';
-import Starred from './StarredList';
 
 const ContactLine = ({
     contact,
@@ -22,7 +21,7 @@ const ContactLine = ({
     editContactFormToggle,
     deleteContact
 })=>{
-const {first, last, number, email, location} = contact;
+const {first, last, number, email, location, starred} = contact;
     return(
        <React.Fragment>
         <ContactCard 
@@ -32,6 +31,7 @@ const {first, last, number, email, location} = contact;
         email = {email}
         location = {location}
         id={id}
+        starred={starred}
         contactModalId = {contactModalId}
         contactCardModal = {contactCardModal}
         showContactCardModal = {showContactCardModal}

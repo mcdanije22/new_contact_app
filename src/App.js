@@ -5,18 +5,20 @@ import HeroProfile from './components/heroProfile/HeroProfile';
 import ContactDisplay from './components/contacts/ContactDisplay';
 import AddForm from './components/addForm/AddForm';
 import SearchField from './components/searchField/SearchField'
+import StarredList from './components/StarredList/StarredList';
+
 
 class App extends Component {
   constructor(props){
     super(props);
     this.state={
       contactList: [
-        {first:'Josh',last:'McDaniel',number:'555-666-7777',email:'joshmcdaniel@gmail.com',location:'Mount Morris, Ny'},
-        {first:'Briana',last:'McDaniel',number:'888-999-1111',email:'brianamcdaniel@gmail.com',location:'Mount Morris, Ny'},
-        {first:'Myles',last:'McDaniel',number:'222-333-4444',email:'finnmcdaniel@gmail.com',location:'Mount Morris, Ny'},
-        {first:'Josh',last:'McDaniel',number:'555-666-7777',email:'joshmcdaniel@gmail.com',location:'Mount Morris, Ny'},
-        {first:'Briana',last:'McDaniel',number:'888-999-1111',email:'brianamcdaniel@gmail.com',location:'Mount Morris, Ny'},
-        {first:'Finn',last:'McDaniel',number:'222-333-4444',email:'finnmcdaniel@gmail.com',location:'Mount Morris, Ny'}
+        {first:'Josh',last:'McDaniel',number:'555-666-7777',email:'joshmcdaniel@gmail.com',location:'Mount Morris, Ny', starred:false},
+        {first:'Briana',last:'McDaniel',number:'888-999-1111',email:'brianamcdaniel@gmail.com',location:'Mount Morris, Ny', starred:false},
+        {first:'Myles',last:'McDaniel',number:'222-333-4444',email:'finnmcdaniel@gmail.com',location:'Mount Morris, Ny', starred:true},
+        {first:'Josh',last:'McDaniel',number:'555-666-7777',email:'joshmcdaniel@gmail.com',location:'Mount Morris, Ny', starred:false},
+        {first:'Briana',last:'McDaniel',number:'888-999-1111',email:'brianamcdaniel@gmail.com',location:'Mount Morris, Ny', starred:false},
+        {first:'Finn',last:'McDaniel',number:'222-333-4444',email:'finnmcdaniel@gmail.com',location:'Mount Morris, Ny', starred:false}
       ],
       first:'',
       last: '',
@@ -103,7 +105,8 @@ class App extends Component {
       last:this.state.last, 
       number:this.state.number, 
       email:this.state.email,
-      location:this.state.location
+      location:this.state.location,
+      starred:false
     });
     this.addNewContact(newContact);
   };
@@ -217,11 +220,7 @@ class App extends Component {
     localStorage.setItem('contact', JSON.stringify([...this.state.contactList]));
   }
 
-  showStarredList=()=>{
-    const starredList = this.state.contactList.filter((contact)=>{
-      return contact.starred === false;
-    })
-  }
+  
   render() {
     const {contactList, searchField}= this.state;
     console.log(contactList,searchField)
@@ -249,10 +248,12 @@ class App extends Component {
         clearAddForm = {this.clearAddForm}
         />
           <div id = 'main'>
-          <HeroProfile />
             <h1 id='contactCount'>
              Contacts 
             </h1>
+          <StarredList
+            contactList={this.state.contactList}
+          />
           <ContactDisplay 
             contactList = {filteredContactList}
             showContactCardModal = {this.showContactCardModal}
