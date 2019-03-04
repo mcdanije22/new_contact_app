@@ -18,9 +18,13 @@ const ContactDisplay = ({
     clearAddForm,
     editContactForm,
     editContactFormToggle,
-    deleteContact
+    deleteContact,
+    showFavorites
 })=>{
-
+    if(showFavorites === true){
+        const favoriteList = contactList.filter(contact => contact.starred === true);
+        contactList = favoriteList;
+    }
     return(
        <div id='contactArea'>
             {contactList.map((person,i)=>{

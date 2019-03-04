@@ -14,10 +14,10 @@ class App extends Component {
     this.state={
       contactList: [
         {first:'Josh',last:'McDaniel',number:'555-666-7777',email:'joshmcdaniel@gmail.com',location:'Mount Morris, Ny', starred:false},
-        {first:'Briana',last:'McDaniel',number:'888-999-1111',email:'brianamcdaniel@gmail.com',location:'Mount Morris, Ny', starred:false},
+        {first:'Briana',last:'McDaniel',number:'888-999-1111',email:'brianamcdaniel@gmail.com',location:'Mount Morris, Ny', starred:true},
         {first:'Myles',last:'McDaniel',number:'222-333-4444',email:'finnmcdaniel@gmail.com',location:'Mount Morris, Ny', starred:true},
         {first:'Josh',last:'McDaniel',number:'555-666-7777',email:'joshmcdaniel@gmail.com',location:'Mount Morris, Ny', starred:false},
-        {first:'Briana',last:'McDaniel',number:'888-999-1111',email:'brianamcdaniel@gmail.com',location:'Mount Morris, Ny', starred:false},
+        {first:'Briana',last:'McDaniel',number:'888-999-1111',email:'brianamcdaniel@gmail.com',location:'Mount Morris, Ny', starred:true},
         {first:'Finn',last:'McDaniel',number:'222-333-4444',email:'finnmcdaniel@gmail.com',location:'Mount Morris, Ny', starred:false}
       ],
       first:'',
@@ -30,7 +30,8 @@ class App extends Component {
       contactModalId:'',
       editContactForm:false,
       searchField:'',
-      searchFieldToggle:false
+      searchFieldToggle:false,
+      showFavorites:false
     }
   };
 
@@ -150,7 +151,8 @@ class App extends Component {
       last:this.state.last || this.state.contactList[this.state.contactModalId].last, 
       number:this.state.number || this.state.contactList[this.state.contactModalId].number, 
       email:this.state.email || this.state.contactList[this.state.contactModalId].email,
-      location:this.state.location || this.state.contactList[this.state.contactModalId].location
+      location:this.state.location || this.state.contactList[this.state.contactModalId].location,
+      starred: this.state.contactList[this.state.contactModalId].starred
     });
 
     const editedContactList = [...this.state.contactList];
@@ -210,7 +212,9 @@ class App extends Component {
 //     }   
 //   };
 
-
+/*
+* logic to delete contact and update local storage
+*/
   deleteContact=(id)=>{
     const contacts = this.state.contactList;
     contacts.splice(id, 1);
@@ -219,7 +223,21 @@ class App extends Component {
     localStorage.getItem('contact')
     localStorage.setItem('contact', JSON.stringify([...this.state.contactList]));
   }
+/*
+* logic to delete contact and update local storage ends
+*/
 
+/*
+* logic for toggling favorite list
+*/
+
+toggleFavoriteList=()=>{
+  this.setState({showFavorites: this.state.showFavorites?false:true})
+}
+
+/*
+* logic for toggling favorite list ends
+*/
   
   render() {
     const {contactList, searchField}= this.state;
@@ -251,9 +269,6 @@ class App extends Component {
             <h1 id='contactCount'>
              Contacts 
             </h1>
-          <StarredList
-            contactList={this.state.contactList}
-          />
           <ContactDisplay 
             contactList = {filteredContactList}
             showContactCardModal = {this.showContactCardModal}
@@ -271,6 +286,8 @@ class App extends Component {
             editContactForm={this.state.editContactForm}
             editContactFormToggle={this.editContactFormToggle}
             deleteContact={this.deleteContact}
+            showFavorites={this.state.showFavorites}
+
           /> 
           <SearchField 
             searchField = {this.state.searchField}
@@ -281,6 +298,8 @@ class App extends Component {
           <NavigationBar 
           modalToggle = {this.addFormModalToggle}
           toggleSearchField={this.toggleSearchField}  
+          toggleFavoriteList = {this.toggleFavoriteList}
+          showFavorites = {this.state.showFavorites}
           />
            </div> 
         </div>

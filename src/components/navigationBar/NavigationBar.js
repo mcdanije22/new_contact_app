@@ -6,7 +6,9 @@ import './navigationBar.scss';
 
 const NavigationBar = ({
     modalToggle,
-    toggleSearchField
+    toggleSearchField,
+    toggleFavoriteList,
+    showFavorites
 })=>{
 
     return(
@@ -28,7 +30,9 @@ const NavigationBar = ({
 
             <button 
             type='button' 
-            id ='favBtn'>
+            id ='favBtn'
+            onClick = {toggleFavoriteList}
+            style={{color:showFavorites?'yellow': 'white'}}>
             <FontAwesomeIcon icon={faStar} />
             </button>
 

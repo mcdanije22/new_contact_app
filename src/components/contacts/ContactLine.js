@@ -48,7 +48,7 @@ const {first, last, number, email, location, starred} = contact;
         editContactFormToggle={editContactFormToggle}
         deleteContact={deleteContact.bind(this,id)}
         />  
-            <div  onClick={showContactCardModal}>
+            <div >
                 <input onClick={showContactCardModal} type='image' id={id} className='mobileList' src={photo} alt='current user profile picture'/>
                 <h2>{first} {last}</h2>
             </div>
