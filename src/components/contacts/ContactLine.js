@@ -19,7 +19,8 @@ const ContactLine = ({
     locationInput,
     editContactForm,
     editContactFormToggle,
-    deleteContact
+    deleteContact,
+    addToFavrorites
 })=>{
 const {first, last, number, email, location, starred} = contact;
     return(
@@ -47,6 +48,7 @@ const {first, last, number, email, location, starred} = contact;
         editContactForm={editContactForm}
         editContactFormToggle={editContactFormToggle}
         deleteContact={deleteContact.bind(this,id)}
+        addToFavrorites={addToFavrorites.bind(this,id)}
         />  
             <div >
                 <input onClick={showContactCardModal} type='image' id={id} className='mobileList' src={photo} alt='current user profile picture'/>

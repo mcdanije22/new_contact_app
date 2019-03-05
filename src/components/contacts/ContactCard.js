@@ -8,7 +8,8 @@ import {
     faCity,
     faChevronLeft,
     faUserEdit,
-    faTrash 
+    faTrash,
+    faStar 
 } from '@fortawesome/free-solid-svg-icons';
 import EditContactForm from './EditContactForm';
 
@@ -21,6 +22,7 @@ const ContactCard = ({
             email,
             location,
             id,
+            starred,
             contactModalId,
             contactCardModal,
             showContactCardModal,
@@ -35,15 +37,17 @@ const ContactCard = ({
             locationInput,
             editContactForm,
             editContactFormToggle,
-            deleteContact
+            deleteContact,
+            addToFavrorites
         }) =>{
     return(   
         <div className = {contactCardModal && contactModalId == id?  'cardModal' : 'closeCardModal'} id ={id} onClick={clickOutsideContactCardModal}>
             <div className = 'card'>
                 <div className = 'cardBanner'>
                     <p> <FontAwesomeIcon className='back' icon={faChevronLeft} onClick={showContactCardModal} /><a onClick={showContactCardModal}> Back</a>  </p>
-                    <FontAwesomeIcon className='delete' onClick={deleteContact} id={id} icon={faTrash} />
+                    <FontAwesomeIcon className='star' onClick={addToFavrorites} style={{color:starred?'#F1C40F':'white'}} id={id} icon={faStar} />
                     <FontAwesomeIcon className='edit' onClick={editContactFormToggle} icon={faUserEdit} />
+                    <FontAwesomeIcon className='delete' onClick={deleteContact} id={id} icon={faTrash} />
                 </div>
 
                 <input type='image' className='contactCardModalImg' src={photo} alt='current user profile picture'/>

@@ -228,15 +228,25 @@ class App extends Component {
 */
 
 /*
-* logic for toggling favorite list
+* logic for favorite list
 */
 
 toggleFavoriteList=()=>{
   this.setState({showFavorites: this.state.showFavorites?false:true})
 }
 
+addToFavrorites=(id)=>{
+const contacts = this.state.contactList;
+contacts[id].starred = contacts[id].starred ? false : true;
+this.setState({contactList:contacts});
+
+localStorage.getItem('contact')
+localStorage.setItem('contact', JSON.stringify([...this.state.contactList]));
+console.log(contacts)
+}
+
 /*
-* logic for toggling favorite list ends
+* logic for favorite list ends
 */
   
   render() {
@@ -287,6 +297,7 @@ toggleFavoriteList=()=>{
             editContactFormToggle={this.editContactFormToggle}
             deleteContact={this.deleteContact}
             showFavorites={this.state.showFavorites}
+            addToFavrorites={this.addToFavrorites}
 
           /> 
           <SearchField 

@@ -32,7 +32,7 @@ const NavigationBar = ({
             type='button' 
             id ='favBtn'
             onClick = {toggleFavoriteList}
-            style={{color:showFavorites?'yellow': 'white'}}>
+            style={{color:showFavorites?'#F1C40F': 'white'}}>
             <FontAwesomeIcon icon={faStar} />
             </button>
 

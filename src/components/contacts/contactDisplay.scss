@@ -16,11 +16,11 @@
         h2{
             font-size: 3rem;
             color:white;
-            padding-top:4rem;
+            padding-top:3rem;
         } 
             .mobileList{
                 border-radius: 50%;
-                margin: 3rem 0;
+                margin: 2rem 0;
                 margin-right:3rem;
                 border: .2rem white solid;   
                 float:left;  
@@ -74,18 +74,20 @@ hr{
            
 
     }
-    .back,.edit, .delete{
+    
+    .back,.edit, .delete, .star{
         margin-top:4rem;
+    }
+    .star{
+        margin-left:18rem;
     }
     .back{
         margin-left: 2rem;
     }
-    .edit{
+    .delete{
         margin-right: 2rem;
     }
-    .delete{
-        margin-left:22rem;
-    }
+  
 
     .contactCardModalImg{
         border-radius: 50%;
