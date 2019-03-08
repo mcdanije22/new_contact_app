@@ -36,18 +36,28 @@ class App extends Component {
   };
 
   componentWillMount(){
+    const currentContactList = this.state.contactList;
+    const sortedContactList = currentContactList.sort((a,b)=>{
+    if(a.first.toLowerCase() > b.first.toLowerCase()) return 1;
+    if(a.first.toLowerCase() < b.first.toLowerCase()) return -1;
+    })
+    this.setState({contactList:sortedContactList})
     const local = JSON.parse(localStorage.getItem('contact'));
     if(local !== null){
       this.setState({contactList:local});
-    }
-  };
+    }   
+     }
+  
 
   addToLocalStorage = (newContact) =>{
     if(localStorage.getItem('contact') == null){
       localStorage.setItem('contact', JSON.stringify([...this.state.contactList]));
     } else{
       const oldLocalStorage = JSON.parse(localStorage.getItem('contact'));
-      localStorage.setItem('contact', JSON.stringify([...oldLocalStorage,newContact]));
+      localStorage.setItem('contact', JSON.stringify([...oldLocalStorage,newContact].sort((a,b)=>{
+        if(a.first.toLowerCase() > b.first.toLowerCase()) return 1;
+        if(a.first.toLowerCase() < b.first.toLowerCase()) return -1;
+        })));
     }
   };
 
@@ -79,7 +89,11 @@ class App extends Component {
     if(this.state.first === '' || this.state.last === '' || this.state.number === '' || this.state.email === '' || this.state.location === ''){
       alert('Please fill in all fields');
     }else{
-    const newContactList = [...this.state.contactList, newContact];
+      //putting new contacts in order
+    const newContactList = [...this.state.contactList, newContact].sort((a,b)=>{
+      if(a.first.toLowerCase() > b.first.toLowerCase()) return 1;
+      if(a.first.toLowerCase() < b.first.toLowerCase()) return -1;
+      });
     this.setState({contactList:newContactList},()=>{
       console.log(this.state.contactList); 
       this.addToLocalStorage(newContact);
@@ -127,7 +141,7 @@ class App extends Component {
     this.setState({contactCardModal:this.state.contactCardModal?false:true},()=>{
       console.log(this.state.contactCardModal)
     })
-    this.setState({editContactForm:false})
+    this.setState({editContactForm:false, searchFieldToggle:false})
     this.clearAddForm();
   }
 
@@ -205,12 +219,6 @@ class App extends Component {
    /****** 
    * searchField logic end
   */
-
-//  clickOutsideSearchBar = (e)=>{
-//   if(!e.target.id === 'searchFieldInput'){
-//     this.toggleSearchField();
-//     }   
-//   };
 
 /*
 * logic to delete contact and update local storage
