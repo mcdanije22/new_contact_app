@@ -20,13 +20,10 @@ const ContactDisplay = ({
     editContactForm,
     editContactFormToggle,
     deleteContact,
+    addToFavrorites,
     showFavorites,
-    addToFavrorites
+    searchFieldToggle
 })=>{
-    if(showFavorites === true){
-        const favoriteList = contactList.filter(contact => contact.starred === true);
-        contactList = favoriteList;
-    }
     return(
        <div id='contactArea'>
     {contactList.filter((contacts)=>{
@@ -56,9 +53,12 @@ const ContactDisplay = ({
                 editContactFormToggle={editContactFormToggle}
                 deleteContact={deleteContact}
                 addToFavrorites={addToFavrorites}
+                showFavorites={showFavorites}
+                searchFieldToggle={searchFieldToggle}
                     />
                 })
             }
+            
        </div>
     )
 }  

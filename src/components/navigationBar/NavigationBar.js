@@ -8,7 +8,9 @@ const NavigationBar = ({
     modalToggle,
     toggleSearchField,
     toggleFavoriteList,
-    showFavorites
+    showFavorites,
+    searchFieldToggle,
+    addFormModal,
 })=>{
 
     return(
@@ -16,6 +18,7 @@ const NavigationBar = ({
             <button 
             type='button' 
             id ='searchBtn' 
+            style={{color:searchFieldToggle?'#5299ED':'white'}}
             onClick={toggleSearchField}>
             <FontAwesomeIcon icon={faSearch} />
             </button>
@@ -23,6 +26,7 @@ const NavigationBar = ({
             <button 
             type='button' 
             id ='addBtn' 
+            style={{color:addFormModal?'#28DC59':'white'}}
             onClick={modalToggle}>
             <FontAwesomeIcon icon={faUserPlus} />
             </button>

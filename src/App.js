@@ -109,6 +109,7 @@ class App extends Component {
       number:'',
       email:'',
       location:'',
+      searchField:''
     });
   };
 
@@ -140,13 +141,15 @@ class App extends Component {
     this.setState({contactCardModal:this.state.contactCardModal?false:true},()=>{
       console.log(this.state.contactCardModal)
     })
-    this.setState({editContactForm:false, searchFieldToggle:false})
-    // this.clearAddForm();
+    this.setState({editContactForm:false})
   };
+
+
 
   clickOutsideContactCardModal = (e)=>{
     if(e.target.className === 'cardModal'){
-      this.setState({contactCardModal:this.state.contactCardModal?false:true})
+      this.setState({contactCardModal:this.state.contactCardModal?false:true, searchFieldToggle:false})
+      this.clearAddForm();
       }   
     };
  /******** 
@@ -223,6 +226,7 @@ class App extends Component {
       searchField:''
     })
   }
+
    /****** 
    * searchField logic end
   */
@@ -273,7 +277,8 @@ console.log(contacts)
     //       contacts.last.toLowerCase().includes(searchField.toLowerCase())
     //       )
     //     })
-        
+    const {contactList} = this.state;
+    const favoriteList = contactList.filter(contact => contact.starred === true);
     return (
       <div className="App" >
         <AddForm 
@@ -294,7 +299,7 @@ console.log(contacts)
              Contacts 
             </h1>
           <ContactDisplay 
-            contactList = {this.state.contactList}
+            contactList = {this.state.showFavorites?favoriteList:this.state.contactList}
             searchField={this.state.searchField}
             showContactCardModal = {this.showContactCardModal}
             contactModalId={this.state.contactModalId}
@@ -312,20 +317,23 @@ console.log(contacts)
             editContactFormToggle={this.editContactFormToggle}
             deleteContact={this.deleteContact}
             showFavorites={this.state.showFavorites}
-            addToFavrorites={this.addToFavrorites}
-
+            addToFavrorites={this.addToFavrorites} 
+            showFavorites={this.state.showFavorites}
+            searchFieldToggle={this.state.searchFieldToggle}
           /> 
           <SearchField 
             searchField = {this.state.searchField}
             inputChange={this.inputChange}
             searchFieldToggle={this.state.searchFieldToggle}
-            clickOutsideSearchBar={this.clickOutsideSearchBar}
+           
           />
           <NavigationBar 
           modalToggle = {this.addFormModalToggle}
           toggleSearchField={this.toggleSearchField}  
           toggleFavoriteList = {this.toggleFavoriteList}
           showFavorites = {this.state.showFavorites}
+          searchFieldToggle={this.state.searchFieldToggle}
+          addFormModal={this.state.addFormModal}
           />
            </div> 
         </div>

@@ -5,19 +5,20 @@ const SearchField = ({
     searchField,
     inputChange,
     searchFieldToggle,
-    clickOutsideSearchBar
 }) =>{
     return(
-        <React.Fragment>
-            <input type='text' id='searchFieldInput' 
+        <React.Fragment >
+            <input 
+            type='text' 
+            id='searchFieldInput' 
             name='searchField' 
             value={searchField} 
             style={{display: searchFieldToggle? 'block' : 'none'}} 
             onChange={inputChange} 
             placeholder={'Search By Name'}
-            onClick={clickOutsideSearchBar}
             />
             {console.log(searchField)}
+       
         </React.Fragment>
     )
 }

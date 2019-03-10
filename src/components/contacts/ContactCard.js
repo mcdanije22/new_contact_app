@@ -38,16 +38,35 @@ const ContactCard = ({
             editContactForm,
             editContactFormToggle,
             deleteContact,
-            addToFavrorites
+            addToFavrorites,
+            showFavorites,
+            searchFieldToggle
         }) =>{
+            const hideBtn = showFavorites||searchFieldToggle?'none':'block'; 
     return(   
         <div className = {contactCardModal && contactModalId == id?  'cardModal' : 'closeCardModal'} id ={id} onClick={clickOutsideContactCardModal}>
             <div className = 'card'>
                 <div className = 'cardBanner'>
-                    <p> <FontAwesomeIcon className='back' icon={faChevronLeft} onClick={showContactCardModal} /><a onClick={showContactCardModal}> Back</a>  </p>
-                    <FontAwesomeIcon className='star' onClick={addToFavrorites} style={{color:starred?'#F1C40F':'white'}} id={id} icon={faStar} />
-                    <FontAwesomeIcon className='edit' onClick={editContactFormToggle} icon={faUserEdit} />
-                    <FontAwesomeIcon className='delete' onClick={deleteContact} id={id} icon={faTrash} />
+                    <p> <FontAwesomeIcon className='back' id={id} icon={faChevronLeft} onClick={showContactCardModal} /><a onClick={showContactCardModal}> Back</a>  </p>
+                    <FontAwesomeIcon 
+                    className='star' 
+                    onClick={addToFavrorites} 
+                    style=
+                    {{
+                    color:starred?'#F1C40F':'white', 
+                    display:hideBtn
+                    }} 
+                    icon={faStar} />
+                    <FontAwesomeIcon 
+                    className='edit' 
+                    style={{display:hideBtn}}
+                    onClick={editContactFormToggle} 
+                    icon={faUserEdit} />
+                    <FontAwesomeIcon 
+                    className='delete' 
+                    style={{display:hideBtn}}
+                    onClick={deleteContact} 
+                    icon={faTrash} />
                 </div>
 
                 <input type='image' className='contactCardModalImg' src={photo} alt='current user profile picture'/>
