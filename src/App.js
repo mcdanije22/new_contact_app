@@ -109,7 +109,6 @@ class App extends Component {
       number:'',
       email:'',
       location:'',
-      searchField:''
     });
   };
 
@@ -142,8 +141,8 @@ class App extends Component {
       console.log(this.state.contactCardModal)
     })
     this.setState({editContactForm:false, searchFieldToggle:false})
-    this.clearAddForm();
-  }
+    // this.clearAddForm();
+  };
 
   clickOutsideContactCardModal = (e)=>{
     if(e.target.className === 'cardModal'){
@@ -169,8 +168,12 @@ class App extends Component {
       starred: this.state.contactList[this.state.contactModalId].starred
     });
 
-    const editedContactList = [...this.state.contactList];
+    let editedContactList = [...this.state.contactList];
     editedContactList[this.state.contactModalId] = newContact;
+    editedContactList = editedContactList.sort((a,b)=>{
+      if(a.first.toLowerCase() > b.first.toLowerCase()) return 1;
+      if(a.first.toLowerCase() < b.first.toLowerCase()) return -1;
+      })
     this.setState({contactList:editedContactList},()=>{
     this.editLocalStorage(newContact);
     });
@@ -188,8 +191,12 @@ class App extends Component {
     if(localStorage.getItem('contact') == null){
       localStorage.setItem('contact', JSON.stringify([...this.state.contactList]));
     } else{
-      const oldLocalStorage = JSON.parse(localStorage.getItem('contact'));
+      let oldLocalStorage = JSON.parse(localStorage.getItem('contact'));
       oldLocalStorage[this.state.contactModalId] = newContact
+      oldLocalStorage = oldLocalStorage.sort((a,b)=>{
+        if(a.first.toLowerCase() > b.first.toLowerCase()) return 1;
+        if(a.first.toLowerCase() < b.first.toLowerCase()) return -1;
+        })
       localStorage.setItem('contact', JSON.stringify([...oldLocalStorage]));
     }
   }
@@ -258,15 +265,14 @@ console.log(contacts)
 */
   
   render() {
-    const {contactList, searchField}= this.state;
-    console.log(contactList,searchField)
-    const filteredContactList = contactList.filter((contacts)=>{
-         return(
-          contacts.first.toLowerCase().includes(searchField.toLowerCase()) 
-          ||
-          contacts.last.toLowerCase().includes(searchField.toLowerCase())
-          )
-        })
+    // const {contactList, searchField}= this.state;
+    // const filteredContactList = contactList.filter((contacts)=>{
+    //      return(  
+    //       contacts.first.toLowerCase().includes(searchField.toLowerCase()) 
+    //       ||
+    //       contacts.last.toLowerCase().includes(searchField.toLowerCase())
+    //       )
+    //     })
         
     return (
       <div className="App" >
@@ -288,7 +294,8 @@ console.log(contacts)
              Contacts 
             </h1>
           <ContactDisplay 
-            contactList = {filteredContactList}
+            contactList = {this.state.contactList}
+            searchField={this.state.searchField}
             showContactCardModal = {this.showContactCardModal}
             contactModalId={this.state.contactModalId}
             contactCardModal={this.state.contactCardModal}

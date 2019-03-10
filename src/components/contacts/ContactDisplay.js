@@ -4,6 +4,7 @@ import './contactDisplay.scss';
 
 const ContactDisplay = ({
     contactList,
+    searchField,
     showContactCardModal,
     contactModalId, 
     contactCardModal,
@@ -28,7 +29,13 @@ const ContactDisplay = ({
     }
     return(
        <div id='contactArea'>
-            {contactList.map((person,i)=>{
+    {contactList.filter((contacts)=>{
+        return(  
+         contacts.first.toLowerCase().includes(searchField.toLowerCase()) 
+         ||
+         contacts.last.toLowerCase().includes(searchField.toLowerCase())
+         )
+       }).map((person,i)=>{
                 return <ContactLine 
                 key={i} 
                 contact={person} 
