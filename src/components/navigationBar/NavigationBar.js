@@ -10,37 +10,44 @@ const NavigationBar = ({
     toggleFavoriteList,
     showFavorites,
     searchFieldToggle,
-    addFormModal,
+    addFormModal
 })=>{
 
     return(
-        <div id ='nav'>
-            <button 
-            type='button' 
-            id ='searchBtn' 
-            style={{color:searchFieldToggle?'#5299ED':'white'}}
-            onClick={toggleSearchField}>
-            <FontAwesomeIcon icon={faSearch} />
-            </button>
+            <ul id ='nav'>
+                <li>
+                    <button 
+                    type='button' 
+                    id ='searchBtn' 
+                    style={{color:searchFieldToggle?'#5299ED':'white'}}
+                    onClick={toggleSearchField}>
+                    <FontAwesomeIcon icon={faSearch} />
+                    </button>
+                </li>
+                
 
-            <button 
-            type='button' 
-            id ='addBtn' 
-            style={{color:addFormModal?'#28DC59':'white'}}
-            onClick={modalToggle}>
-            <FontAwesomeIcon icon={faUserPlus} />
-            </button>
-            
+                {/* <hr className='navLine'/> */}
 
-            <button 
-            type='button' 
-            id ='favBtn'
-            onClick = {toggleFavoriteList}
-            style={{color:showFavorites?'#F1C40F': 'white'}}>
-            <FontAwesomeIcon icon={faStar} />
-            </button>
+                <li>
+                    <button 
+                    type='button' 
+                    id ='addBtn' 
+                    style={{color:addFormModal?'#28DC59':'white'}}
+                    onClick={modalToggle}>
+                    <FontAwesomeIcon icon={faUserPlus} />
+                    </button>
+                </li>
 
-        </div>
+                <li>
+                    <button 
+                    type='button' 
+                    id ='favBtn'
+                    onClick = {toggleFavoriteList}
+                    style={{color:showFavorites?'#F1C40F': 'white'}}>
+                    <FontAwesomeIcon icon={faStar} />
+                    </button>
+                </li>
+            </ul>
     )
 }  
 export default NavigationBar;

@@ -15,7 +15,7 @@ const SearchField = ({
             value={searchField} 
             style={{display: searchFieldToggle? 'block' : 'none'}} 
             onChange={inputChange} 
-            placeholder={'Search By Name'}
+            placeholder={'Search By Name...'}
             />
             {console.log(searchField)}
        

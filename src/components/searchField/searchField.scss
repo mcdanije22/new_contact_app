@@ -1,3 +1,10 @@
+$desktop:1024px;
+@mixin desktop {
+    @media (min-width: #{$desktop}) {
+      @content;
+    }
+}
+
 #searchFieldInput{
     width:70%;
     font-size:3rem;
@@ -8,4 +15,17 @@
     text-align:center;
     border-radius: 50rem;
     padding:1rem;
+
+    @include desktop{
+    bottom:auto;
+    top:0;
+    z-index:1;
+    padding:0.5rem;
+    font-size:1.5rem;
+    margin: 1.6rem 0 1rem 8rem;
+    background-color:transparent;
+    border:none;
+    color:white;
+    text-align: left;
+}
 }

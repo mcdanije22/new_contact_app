@@ -1,18 +1,75 @@
+$desktop:1024px;
+@mixin desktop {
+    @media (min-width: #{$desktop}) {
+      @content;
+    }
+}
+
 #nav{
-    display:flex;
-    justify-content: space-evenly;
-    position: fixed;
-    bottom:0;
-    width:100%;
-    padding:2rem 0 2rem 0;
+    
+    
     // background: rgb(59,69,102);
-      background:#272626;
+          background:#272626;
         // background: linear-gradient(185deg, rgba(59,69,102,1) 0%, rgba(40,46,73,1) 100%);
+          padding:2rem 0 2rem 0;
+          bottom:0;
+          width:100%;
+          display:flex;
+          justify-content: space-around;
+          position: fixed;
         #addBtn, #searchBtn, #favBtn{
             font-size:5rem;
             border:none;
             background-color:transparent;
             color:white;        
-        }        
+        }     
+        .navLine{
+          display:none;
+        }   
 }
 
+@include desktop{
+//   #nav{
+//   justify-content: center;
+//   top:0;
+//   height: 1.5rem;
+//   background: #3B3A4A;
+//   border-bottom: solid black 1px;
+//   .navLine{
+//     display:block;
+//     height: 4rem;
+//   }
+//   #searchBtn{
+//     font-size:1.5rem;
+//     margin-right:88rem;
+//     margin-left:8rem;
+//   }
+//   #addBtn, #favBtn{
+//     font-size:1.5rem;
+//     margin-left:2rem;
+//     }
+//     #favBtn{
+//       margin-right:5rem;
+//     }
+//   } 
+  #nav{
+    list-style: none;
+    display:flex;
+    top:0;
+    height: 1.5rem;
+    background: #3B3A4A;
+    border-bottom: solid black 1px;
+    justify-content: flex-end;
+  
+  #searchBtn{
+    font-size:1.5rem;
+    margin-right:90rem;
+  }
+  #addBtn, #favBtn{
+    font-size:1.5rem;
+    margin-right:2rem;
+    }
+    #favBtn{
+    }
+  } 
+}
