@@ -12,7 +12,6 @@ $desktop:1024px;
           background:#292734;
         // background: linear-gradient(185deg, rgba(59,69,102,1) 0%, rgba(40,46,73,1) 100%);
           padding:2rem 0 2rem 0;
-          bottom:0;
           width:100%;
           display:flex;
           justify-content: space-around;
@@ -29,29 +28,7 @@ $desktop:1024px;
 }
 
 @include desktop{
-//   #nav{
-//   justify-content: center;
-//   top:0;
-//   height: 1.5rem;
-//   background: #3B3A4A;
-//   border-bottom: solid black 1px;
-//   .navLine{
-//     display:block;
-//     height: 4rem;
-//   }
-//   #searchBtn{
-//     font-size:1.5rem;
-//     margin-right:88rem;
-//     margin-left:8rem;
-//   }
-//   #addBtn, #favBtn{
-//     font-size:1.5rem;
-//     margin-left:2rem;
-//     }
-//     #favBtn{
-//       margin-right:5rem;
-//     }
-//   } 
+
   #nav{
     list-style: none;
     display:flex;

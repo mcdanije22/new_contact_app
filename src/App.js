@@ -295,6 +295,18 @@ console.log(contacts)
         clearAddForm = {this.clearAddForm}
         />
           <div id = 'main'>
+          <NavigationBar 
+          modalToggle = {this.addFormModalToggle}
+          toggleSearchField={this.toggleSearchField}  
+          toggleFavoriteList = {this.toggleFavoriteList}
+          showFavorites = {this.state.showFavorites}
+          searchFieldToggle={this.state.searchFieldToggle}
+          addFormModal={this.state.addFormModal}
+          searchField = {this.state.searchField}
+          inputChange={this.inputChange}
+          searchFieldToggle={this.state.searchFieldToggle}
+           
+          />
             <h1 id='contactCount'>
              Contacts 
             </h1>
@@ -321,20 +333,8 @@ console.log(contacts)
             showFavorites={this.state.showFavorites}
             searchFieldToggle={this.state.searchFieldToggle}
           /> 
-          <SearchField 
-            searchField = {this.state.searchField}
-            inputChange={this.inputChange}
-            searchFieldToggle={this.state.searchFieldToggle}
-           
-          />
-          <NavigationBar 
-          modalToggle = {this.addFormModalToggle}
-          toggleSearchField={this.toggleSearchField}  
-          toggleFavoriteList = {this.toggleFavoriteList}
-          showFavorites = {this.state.showFavorites}
-          searchFieldToggle={this.state.searchFieldToggle}
-          addFormModal={this.state.addFormModal}
-          />
+         
+        
            </div> 
         </div>
     );

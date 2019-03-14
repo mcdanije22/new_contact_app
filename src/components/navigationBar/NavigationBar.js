@@ -2,6 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faUserPlus, faStar } from '@fortawesome/free-solid-svg-icons';
 import './navigationBar.scss';
+import SearchField from './searchField/SearchField'
 
 
 const NavigationBar = ({
@@ -10,19 +11,20 @@ const NavigationBar = ({
     toggleFavoriteList,
     showFavorites,
     searchFieldToggle,
-    addFormModal
+    addFormModal,
+    searchField,
+    inputChange,
 })=>{
 
     return(
             <ul id ='nav'>
                 <li>
-                    <button 
-                    type='button' 
-                    id ='searchBtn' 
-                    style={{color:searchFieldToggle?'#5299ED':'white'}}
-                    onClick={toggleSearchField}>
-                    <FontAwesomeIcon icon={faSearch} />
-                    </button>
+                <SearchField
+                searchField = {searchField}
+                inputChange={inputChange}
+                searchFieldToggle={searchFieldToggle}
+                />
+                   
                 </li>
                 
 

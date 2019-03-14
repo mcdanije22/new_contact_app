@@ -1,11 +1,16 @@
 import React from 'react';
 import './searchField.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+
+
 
 const SearchField = ({
     searchField,
     inputChange,
     searchFieldToggle,
 }) =>{
+    const icon = <FontAwesomeIcon id ='searchBtn' icon={faSearch} />
     return(
         <React.Fragment >
             <input 
@@ -13,9 +18,8 @@ const SearchField = ({
             id='searchFieldInput' 
             name='searchField' 
             value={searchField} 
-            style={{display: searchFieldToggle? 'block' : 'none'}} 
             onChange={inputChange} 
-            placeholder={'Search By Name...'}
+            placeholder={`${icon}Search By Name...`}
             />
             {console.log(searchField)}
        
@@ -23,3 +27,5 @@ const SearchField = ({
     )
 }
 export default SearchField;
+
+
