@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faUserPlus, faStar } from '@fortawesome/free-solid-svg-icons';
 import './navigationBar.scss';
-import SearchField from './searchField/SearchField'
+import SearchField from './searchField/SearchField';
 
 
 const NavigationBar = ({
@@ -13,34 +13,12 @@ const NavigationBar = ({
     searchFieldToggle,
     addFormModal,
     searchField,
-    inputChange,
+    inputChange
 })=>{
 
     return(
             <ul id ='nav'>
-                <li>
-                <SearchField
-                searchField = {searchField}
-                inputChange={inputChange}
-                searchFieldToggle={searchFieldToggle}
-                />
-                   
-                </li>
-                
-
-                {/* <hr className='navLine'/> */}
-
-                <li>
-                    <button 
-                    type='button' 
-                    id ='addBtn' 
-                    style={{color:addFormModal?'#28DC59':'white'}}
-                    onClick={modalToggle}>
-                    <FontAwesomeIcon icon={faUserPlus} />
-                    </button>
-                </li>
-
-                <li>
+         <li>
                     <button 
                     type='button' 
                     id ='favBtn'
@@ -49,7 +27,30 @@ const NavigationBar = ({
                     <FontAwesomeIcon icon={faStar} />
                     </button>
                 </li>
+             
+
+                <li>
+               
+               <h1 id='contactHeader'>Contacts</h1>    
+                </li>
+                <li>
+                    <button 
+                    type='button' 
+                    id ='addBtn' 
+                    style={{color:addFormModal?'#28DC59':'white'}}
+                    onClick={modalToggle}>
+                    <FontAwesomeIcon icon={faUserPlus} />
+                    </button>
+                </li>  
+                <li id='search'>
+                <SearchField 
+                searchField = {searchField}
+                inputChange={inputChange}
+                searchFieldToggle={searchFieldToggle}
+                />
+                </li>
             </ul>
+           
     )
 }  
 export default NavigationBar;

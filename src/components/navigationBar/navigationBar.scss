@@ -6,25 +6,39 @@ $desktop:1024px;
 }
 
 #nav{
-    
+  background:#292734;
+  list-style: none;
+
+// background: linear-gradient(185deg, rgba(59,69,102,1) 0%, rgba(40,46,73,1) 100%);
+  padding:2rem 0 2rem 0;
+  top:0;
+  width:100%;
+  display:flex;
+  justify-content: space-between;
+  position: fixed;
+  flex-wrap: wrap;
+  
+  #search{
+    width:100%;
+    margin-left:13rem;
+    margin-top:2rem;
+  }
+  #contactHeader{
+    font-size:3rem;
+    color: white;
+    text-align: center;
+    letter-spacing: 8px; 
+  }
     
     // background: rgb(59,69,102);
-          background:#292734;
-        // background: linear-gradient(185deg, rgba(59,69,102,1) 0%, rgba(40,46,73,1) 100%);
-          padding:2rem 0 2rem 0;
-          width:100%;
-          display:flex;
-          justify-content: space-around;
-          position: fixed;
+         
         #addBtn, #searchBtn, #favBtn{
-            font-size:5rem;
+            font-size:3rem;
             border:none;
             background-color:transparent;
             color:white;        
         }     
-        .navLine{
-          display:none;
-        }   
+        
 }
 
 @include desktop{

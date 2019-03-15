@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import './App.scss';
 import NavigationBar from './components/navigationBar/NavigationBar';
-import HeroProfile from './components/heroProfile/HeroProfile';
 import ContactDisplay from './components/contacts/ContactDisplay';
 import AddForm from './components/addForm/AddForm';
-import SearchField from './components/searchField/SearchField'
-import StarredList from './components/StarredList/StarredList';
 
 
 class App extends Component {
@@ -295,7 +292,8 @@ console.log(contacts)
         clearAddForm = {this.clearAddForm}
         />
           <div id = 'main'>
-          <NavigationBar 
+           
+            <NavigationBar 
           modalToggle = {this.addFormModalToggle}
           toggleSearchField={this.toggleSearchField}  
           toggleFavoriteList = {this.toggleFavoriteList}
@@ -304,12 +302,8 @@ console.log(contacts)
           addFormModal={this.state.addFormModal}
           searchField = {this.state.searchField}
           inputChange={this.inputChange}
-          searchFieldToggle={this.state.searchFieldToggle}
-           
           />
-            <h1 id='contactCount'>
-             Contacts 
-            </h1>
+        
           <ContactDisplay 
             contactList = {this.state.showFavorites?favoriteList:this.state.contactList}
             searchField={this.state.searchField}
@@ -334,7 +328,7 @@ console.log(contacts)
             searchFieldToggle={this.state.searchFieldToggle}
           /> 
          
-        
+       
            </div> 
         </div>
     );
