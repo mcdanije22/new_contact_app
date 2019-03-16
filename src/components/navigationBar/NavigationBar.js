@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faUserPlus, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faStar } from '@fortawesome/free-solid-svg-icons';
 import './navigationBar.scss';
 import SearchField from './searchField/SearchField';
 
@@ -39,7 +39,7 @@ const NavigationBar = ({
                     id ='addBtn' 
                     style={{color:addFormModal?'#28DC59':'white'}}
                     onClick={modalToggle}>
-                    <FontAwesomeIcon icon={faUserPlus} />
+                    <FontAwesomeIcon icon={faPlus} />
                     </button>
                 </li>  
                 <li id='search'>
@@ -50,7 +50,6 @@ const NavigationBar = ({
                 />
                 </li>
             </ul>
-           
     )
 }  
 export default NavigationBar;
