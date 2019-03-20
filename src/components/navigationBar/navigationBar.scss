@@ -16,11 +16,7 @@ $desktop:1024px;
   display:flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  #search{
-    width:100%;
-    margin-top:3rem;
 
-  }
   #contactHeader{
     font-size:3rem;
     color: white;
@@ -35,26 +31,47 @@ $desktop:1024px;
             font-size:3rem;
             border:none;
             background-color:transparent;
-            color:white;    
+            color:white;   
         }    
-        
+        #searchBtn{
+          display:none;
+        }
+    
 }
 
 @include desktop{
 
   #nav{
+    padding:2rem;
     // background: #3B3A4A;
-    background:rgb(62, 58, 131);
-    border-bottom: solid black 1px;
     flex-wrap: nowrap;
+    display:flex;
+    #favBtnOrder{
+      order:3;
+      margin-right:3rem;
+    }
+    #contactHeaderOrder{
+      order:2;
+      margin-left:22rem;
+      margin-right:3rem;
+    }
+    #addBtnOrder{
+      order:4;
+    }
+    #searchBarOrder{
+      order:1;
+      margin-left:1rem;
+    }
     #contactHeader{
       font-size:1.5rem;
     } 
-  #searchBtn{
+  #addBtn, #favBtn, #searchBtn{
     font-size:1.5rem;
-  }
-  #addBtn, #favBtn{
-    font-size:1.5rem;
+    color:white;
+    }
+    #searchBtn{
+      display:block;
+      margin-left:1rem;
     }
   }
   

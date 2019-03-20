@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faSearch ,faPlus, faStar } from '@fortawesome/free-solid-svg-icons';
 import './navigationBar.scss';
 import SearchField from './searchField/SearchField';
 
@@ -18,7 +18,7 @@ const NavigationBar = ({
 
     return(
             <ul id ='nav'>
-         <li>
+         <li id='favBtnOrder'>
                     <button 
                     type='button' 
                     id ='favBtn'
@@ -29,11 +29,11 @@ const NavigationBar = ({
                 </li>
              
 
-                <li>
+                <li id='contactHeaderOrder'>
                
                <h1 id='contactHeader'>Contacts</h1>    
                 </li>
-                <li>
+                <li id='addBtnOrder'>
                     <button 
                     type='button' 
                     id ='addBtn' 
@@ -42,13 +42,20 @@ const NavigationBar = ({
                     <FontAwesomeIcon icon={faPlus} />
                     </button>
                 </li>  
-                <li id='search'>
+                <li id='searchBarOrder'>
                 <SearchField 
+                id='search'
                 searchField = {searchField}
                 inputChange={inputChange}
                 searchFieldToggle={searchFieldToggle}
                 />
                 </li>
+                <li>
+                <FontAwesomeIcon 
+                id='searchBtn'
+                icon={faSearch}    
+                />
+            </li>
             </ul>
     )
 }  
