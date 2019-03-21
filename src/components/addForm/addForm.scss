@@ -1,4 +1,13 @@
  
+$desktop:1114px;
+@mixin desktop {
+    @media (min-width: #{$desktop}) {
+      @content;
+    }
+}
+
+
+
 #addForm{
     background-color:#FFFFFF;
     color: black;
@@ -8,12 +17,24 @@
     border-radius: 4rem;
     box-shadow: 10px 10px 5px  rgba(0,0,0,0.4);
 
+    @include desktop{
+            width:30%;
+            height: 45rem;
+    }
+  
         #inputGroup{
             margin-top:4rem;
+
+            @include desktop{
+                margin-top:2rem;
+            }
             .inputName{
                 font-size:2rem;
                 text-align: left;
                 margin-left:8rem;
+                @include desktop{
+                    font-size:1rem;
+                }
             }
         }
         #addFormBanner{
@@ -21,6 +42,11 @@
             height:8rem;
             border-radius: 4rem 4rem 0 0;
             font-size:1.5rem;
+
+            @include desktop{
+                height:7rem;
+                font-size:1rem;
+            }
             h2{
                 padding-top:2.5rem;
                 margin-left:6rem;
@@ -28,28 +54,39 @@
         }
         .addInput{
             width: 60%;
-            margin: 3%;
+            margin: 1%;
             text-align:center;
-            font-size:2rem;
+            font-size:3rem;
             border: none;
             border-bottom: 1px solid;
             outline:none;
+
+            @include desktop{
+                font-size:1rem;
+                height:2rem;
+                width:50%;
+            }
         }
         #addtBtn, #clearBtn{
             border: 1px black solid;
             font-size:2rem;
             padding:2rem;
-            margin: 1.5rem 0 .5rem 0;
             border-radius: 2.5rem;
             color:white;
+            @include desktop{
+                padding:1rem;
+                font-size:1.5rem;
+            }
         }  
         #addtBtn{
             background-color:rgb(92, 207, 142); 
-            width:70%;
+            width:60%;
+            margin-top:3rem;
         }
         #clearBtn{
             background-color:#f44336;
             width:50%;
+            margin-top:2rem;
         }
         #closeBtn{
             font-size:3rem;
@@ -80,3 +117,4 @@
 #closeAddFormModel{
     display:none;
 }
+

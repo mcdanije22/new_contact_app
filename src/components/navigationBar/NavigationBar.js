@@ -7,7 +7,6 @@ import SearchField from './searchField/SearchField';
 
 const NavigationBar = ({
     modalToggle,
-    toggleSearchField,
     toggleFavoriteList,
     showFavorites,
     searchFieldToggle,
@@ -17,6 +16,7 @@ const NavigationBar = ({
 })=>{
 
     return(
+        <div id='navBar'>
             <ul id ='nav'>
          <li id='favBtnOrder'>
                     <button 
@@ -43,6 +43,11 @@ const NavigationBar = ({
                     </button>
                 </li>  
                 <li id='searchBarOrder'>
+                <FontAwesomeIcon 
+                id='searchBtn'
+                icon={faSearch} 
+                style={{color:searchField===''? 'white': 'rgb(32, 210, 241)'}}                   
+                />
                 <SearchField 
                 id='search'
                 searchField = {searchField}
@@ -50,13 +55,9 @@ const NavigationBar = ({
                 searchFieldToggle={searchFieldToggle}
                 />
                 </li>
-                <li>
-                <FontAwesomeIcon 
-                id='searchBtn'
-                icon={faSearch}    
-                />
-            </li>
+            
             </ul>
+            </div>
     )
 }  
 export default NavigationBar;

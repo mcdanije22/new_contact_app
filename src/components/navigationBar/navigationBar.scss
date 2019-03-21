@@ -1,4 +1,4 @@
-$desktop:1024px;
+$desktop:1114px;
 @mixin desktop {
     @media (min-width: #{$desktop}) {
       @content;
@@ -36,11 +36,12 @@ $desktop:1024px;
         #searchBtn{
           display:none;
         }
-    
+       
 }
 
 @include desktop{
-
+#navBar{
+  
   #nav{
     padding:2rem;
     // background: #3B3A4A;
@@ -48,19 +49,20 @@ $desktop:1024px;
     display:flex;
     #favBtnOrder{
       order:3;
-      margin-right:3rem;
+      // margin-right:3rem;
     }
     #contactHeaderOrder{
       order:2;
-      margin-left:22rem;
-      margin-right:3rem;
+      // margin-left:22rem;
+      // margin-right:3rem;
     }
     #addBtnOrder{
       order:4;
+      // margin-right:1rem;
     }
     #searchBarOrder{
       order:1;
-      margin-left:1rem;
+      // margin-left:1rem;
     }
     #contactHeader{
       font-size:1.5rem;
@@ -70,9 +72,10 @@ $desktop:1024px;
     color:white;
     }
     #searchBtn{
-      display:block;
-      margin-left:1rem;
+      display:inline-block;
+      margin-right:1rem;
+      // margin-left:2rem;
     }
   }
-  
+}
 }
