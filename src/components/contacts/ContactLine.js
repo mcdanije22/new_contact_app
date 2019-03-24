@@ -22,7 +22,8 @@ const ContactLine = ({
     deleteContact,
     addToFavrorites,
     showFavorites,
-    searchFieldToggle
+    searchFieldToggle,
+    screenWidth
 })=>{
 const {first, last, number, email, location, starred} = contact;
     return(
@@ -53,12 +54,20 @@ const {first, last, number, email, location, starred} = contact;
         addToFavrorites={addToFavrorites.bind(this,id)}
         showFavorites={showFavorites}
         searchFieldToggle={searchFieldToggle}
+        screenWidth={screenWidth}
         />  
-            <div >
-                <input onClick={showContactCardModal} type='image' id={id} className='mobileList' src={photo} alt='current user profile picture'/>
+            <div style={{display:screenWidth === 'large'?'none':'block'}}>
+                <input 
+                onClick={showContactCardModal} 
+                type='image' 
+                id={id} 
+                className='mobileList' 
+                src={photo} 
+                alt='current user profile picture'
+                />
                 <h2>{first} {last}</h2>
+                <hr />
             </div>
-        <hr />
        </React.Fragment>
     )
 }  

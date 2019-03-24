@@ -40,11 +40,12 @@ const ContactCard = ({
             deleteContact,
             addToFavrorites,
             showFavorites,
-            searchFieldToggle
+            searchFieldToggle,
+            screenWidth
         }) =>{
             const hideBtn = showFavorites||searchFieldToggle?'none':'block'; 
     return(   
-        <div className = {contactCardModal && contactModalId == id?  'cardModal' : 'closeCardModal'} id ={id} onClick={clickOutsideContactCardModal}>
+        <div className = {contactCardModal && contactModalId == id || screenWidth === 'large'?  'cardModal' : 'closeCardModal'} id ={id} onClick={clickOutsideContactCardModal}>
             <div className = 'card'>
                 <div className = 'cardBanner'>
                     <p> <FontAwesomeIcon className='back' id={id} icon={faChevronLeft} onClick={showContactCardModal} /><a onClick={showContactCardModal}> Back</a>  </p>

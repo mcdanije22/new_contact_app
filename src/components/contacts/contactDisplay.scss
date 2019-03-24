@@ -31,20 +31,10 @@ $desktop:1114px;
 }
 @include desktop{
     #contactArea {
-        overflow: scroll;
-        h2{
-        font-size:1.5rem;
-        }
-        .mobileList{
-            width: 50px;
-            height:50px;
-            margin-right:2rem;
-            overflow: scroll;
-            border: 1px white solid;
-        }            
-    }
-    hr{
-        width:65%;
+        display:flex;
+        flex-wrap: wrap;   
+        padding:0;     
+        margin:10rem 6rem;
     }
 }
 
@@ -66,9 +56,17 @@ hr{
     background-color: rgba(0,0,0,0.4);
     z-index: 1;
     opacity: 1;
-    animation: show .5s ease;
     overflow-X: hidden;
     overflow-Y: auto;
+    @include desktop{
+        position: relative;
+        background-color: transparent;
+        top:auto;
+        right: auto;
+        left: auto;
+        bottom: auto;
+        z-index: -1;
+    }
     .card{
         background-color:#FFFFFF;
         color: black;
@@ -78,6 +76,12 @@ hr{
         border-radius: 5%;
         font-size:2.5rem;
         position: relative;
+        @include desktop{
+            height: 25rem;
+            width:20rem;
+            font-size:1rem;
+            margin:1rem;
+        }
     }
     .cardBanner{
             height:25rem;
@@ -85,25 +89,39 @@ hr{
             display:flex;
             justify-content: space-between;
             font-size:3rem;
-            background: rgb(59,69,102);
+            background:rgb(62, 58, 131);
             color:white;
             position: absolute;
             width:100%;
-           
-
+                @include desktop{
+                height:3rem;
+                font-size:1rem;
+                }
     }
     
     .back,.edit, .delete, .star{
         margin-top:4rem;
+        @include desktop{
+           margin-top:1rem;
+        }
     }
     .star{
         margin-left:18rem;
+        @include desktop{
+            margin:1rem 0 0 10rem;
+         }
     }
     .back{
         margin-left: 2rem;
+        @include desktop{
+            margin:1rem 0 0 1rem;
+         }
     }
     .delete{
         margin-right: 2rem;
+        @include desktop{
+            margin:1rem 1rem 0 0;
+         }
     }
   
 
@@ -115,16 +133,28 @@ hr{
         position: absolute;
         display: flex;
         margin:12rem;
+        @include desktop{
+            height:120px;
+            width:120px;
+            border:none;
+            margin:5rem 6.5rem;
+        }
     }
     .cardContent{
         margin-top:38rem;
         padding: 0 2rem;
+        @include desktop{
+            margin-top:14rem;
+        }
         .icon, p{
             margin-top:3rem;
+            @include desktop {
+                margin-top:1rem;
+            }
         }
         .icon{
             float:left;
-            margin-left:3rem;
+            margin-left:1rem;
         }
     }
 }
@@ -139,6 +169,10 @@ hr{
             border: none;
             border-bottom: 1px solid;
             outline:none;
+            @include desktop{
+                margin:0;
+                font-size:1.2rem;
+            }
           
         }
         .editCancel, .submitEditButton{
@@ -148,7 +182,12 @@ hr{
             margin: 1rem 1rem 0 1rem;
             border-radius: 2.5rem;
             color:white;
-            width: 30%
+            width: 30%;
+            @include desktop{
+                font-size:1rem;
+                padding:0.2rem;
+            }
+
         }
         .editCancel{
             background-color:#f44336;
@@ -160,4 +199,7 @@ hr{
 .name{
     color:black;
     font-size: 4rem;
+    @include desktop{
+        font-size:2rem;
+    }
 }

@@ -28,7 +28,8 @@ class App extends Component {
       editContactForm:false,
       searchField:'',
       searchFieldToggle:false,
-      showFavorites:false
+      showFavorites:false,
+      screenWidth:''
     }
   };
 
@@ -42,9 +43,23 @@ class App extends Component {
     const local = JSON.parse(localStorage.getItem('contact'));
     if(local !== null){
       this.setState({contactList:local});
-    }   
+    }
+    // this.updateScreenWidth();
+    // window.addEventListener('resize', this.updateScreenWidth());   
      }
-  
+
+     componentDidMount() {
+      this.updateScreenWidth();
+      window.addEventListener("resize", this.updateScreenWidth);
+    }
+
+  updateScreenWidth=()=>{
+    if(window.innerWidth >= 1115){
+      this.setState({screenWidth:'large', contactCardModal:true})
+    }else{
+      this.setState({screenWidth:'small'})
+    }
+  }
 
   addToLocalStorage = (newContact) =>{
     if(localStorage.getItem('contact') == null){
@@ -266,42 +281,36 @@ console.log(contacts)
 */
   
   render() {
-    // const {contactList, searchField}= this.state;
-    // const filteredContactList = contactList.filter((contacts)=>{
-    //      return(  
-    //       contacts.first.toLowerCase().includes(searchField.toLowerCase()) 
-    //       ||
-    //       contacts.last.toLowerCase().includes(searchField.toLowerCase())
-    //       )
-    //     })
+    console.log(this.state.screenWidth);
+
     const {contactList} = this.state;
     const favoriteList = contactList.filter(contact => contact.starred === true);
     return (
       <div className="App" >
         <AddForm 
-        addFormModal = {this.state.addFormModal}
-        addFormModalToggle = {this.addFormModalToggle}
-        inputChange = {this.inputChange}
-        onSubmitAddForm = {this.onSubmitAddForm}
-        first = {this.state.first}
-        last = {this.state.last}
-        number = {this.state.number}
-        email = {this.state.email}
-        location = {this.state.location}
-        clickOutsideAddFormModal = {this.clickOutsideAddFormModal}
-        clearAddForm = {this.clearAddForm}
+          addFormModal = {this.state.addFormModal}
+          addFormModalToggle = {this.addFormModalToggle}
+          inputChange = {this.inputChange}
+          onSubmitAddForm = {this.onSubmitAddForm}
+          first = {this.state.first}
+          last = {this.state.last}
+          number = {this.state.number}
+          email = {this.state.email}
+          location = {this.state.location}
+          clickOutsideAddFormModal = {this.clickOutsideAddFormModal}
+          clearAddForm = {this.clearAddForm}
         />
           <div id = 'main'>
            
-            <NavigationBar 
-          modalToggle = {this.addFormModalToggle}
-          toggleSearchField={this.toggleSearchField}  
-          toggleFavoriteList = {this.toggleFavoriteList}
-          showFavorites = {this.state.showFavorites}
-          searchFieldToggle={this.state.searchFieldToggle}
-          addFormModal={this.state.addFormModal}
-          searchField = {this.state.searchField}
-          inputChange={this.inputChange}
+          <NavigationBar 
+            modalToggle = {this.addFormModalToggle}
+            toggleSearchField={this.toggleSearchField}  
+            toggleFavoriteList = {this.toggleFavoriteList}
+            showFavorites = {this.state.showFavorites}
+            searchFieldToggle={this.state.searchFieldToggle}
+            addFormModal={this.state.addFormModal}
+            searchField = {this.state.searchField}
+            inputChange={this.inputChange}
           />
         
           <ContactDisplay 
@@ -326,6 +335,7 @@ console.log(contacts)
             addToFavrorites={this.addToFavrorites} 
             showFavorites={this.state.showFavorites}
             searchFieldToggle={this.state.searchFieldToggle}
+            screenWidth={this.state.screenWidth}
           /> 
          
        

@@ -22,7 +22,8 @@ const ContactDisplay = ({
     deleteContact,
     addToFavrorites,
     showFavorites,
-    searchFieldToggle
+    searchFieldToggle,
+    screenWidth
 })=>{
     return(
        <div id='contactArea'>
@@ -55,10 +56,10 @@ const ContactDisplay = ({
                 addToFavrorites={addToFavrorites}
                 showFavorites={showFavorites}
                 searchFieldToggle={searchFieldToggle}
+                screenWidth={screenWidth}
                     />
                 })
-            }
-            
+            } 
        </div>
     )
 }  
