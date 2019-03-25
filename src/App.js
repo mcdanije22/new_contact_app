@@ -44,8 +44,7 @@ class App extends Component {
     if(local !== null){
       this.setState({contactList:local});
     }
-    // this.updateScreenWidth();
-    // window.addEventListener('resize', this.updateScreenWidth());   
+  
      }
 
      componentDidMount() {
@@ -57,7 +56,7 @@ class App extends Component {
     if(window.innerWidth >= 1115){
       this.setState({screenWidth:'large', contactCardModal:true})
     }else{
-      this.setState({screenWidth:'small'})
+      this.setState({screenWidth:'small', contactCardModal:false})
     }
   }
 

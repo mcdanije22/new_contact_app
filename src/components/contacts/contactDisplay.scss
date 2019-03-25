@@ -1,3 +1,4 @@
+// $desktop:1114px;
 $desktop:1114px;
 @mixin desktop {
     @media (min-width: #{$desktop}) {
@@ -60,6 +61,7 @@ hr{
     opacity: 1;
     overflow-X: hidden;
     overflow-Y: auto;
+    padding:50rem 10rem;
     @include desktop{
         position: relative;
         background-color: transparent;
@@ -68,11 +70,12 @@ hr{
         left: auto;
         bottom: auto;
         z-index:auto;
+        padding:0;
     }
     .card{
         background-color:#FFFFFF;
         color: black;
-        width:75%;
+        width:46rem;
         height:70rem;
         text-align: center;
         border-radius: 5%;
@@ -129,12 +132,12 @@ hr{
 
     .contactCardModalImg{
         border-radius: 50%;
-        height:350px;
-        width:350px;
+        height:22rem;
+        width:22rem;
         border: .8rem black solid;   
         position: absolute;
         display: flex;
-        margin:12rem;
+        margin:10rem;
         @include desktop{
             height:120px;
             width:120px;

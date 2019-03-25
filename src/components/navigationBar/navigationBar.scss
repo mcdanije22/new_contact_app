@@ -14,7 +14,7 @@ $desktop:1114px;
   list-style: none;
   top:0;
   display:flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
 
   #contactHeader{
@@ -25,7 +25,6 @@ $desktop:1114px;
   }
  
     
-    // background: rgb(59,69,102);
          
         #addBtn, #favBtn{
             font-size:3rem;
@@ -43,25 +42,19 @@ $desktop:1114px;
   
   #nav{
     padding:2rem;
-    // background: #3B3A4A;
     flex-wrap: nowrap;
     display:flex;
     #favBtnOrder{
       order:3;
-      // margin-right:3rem;
     }
     #contactHeaderOrder{
       order:2;
-      // margin-left:22rem;
-      // margin-right:3rem;
     }
     #addBtnOrder{
       order:4;
-      // margin-right:1rem;
     }
     #searchBarOrder{
       order:1;
-      // margin-left:1rem;
     }
     #contactHeader{
       font-size:1.5rem;
@@ -73,7 +66,6 @@ $desktop:1114px;
     #searchBtn{
       display:inline-block;
       margin-right:1rem;
-      // margin-left:2rem;
     }
   }
 }

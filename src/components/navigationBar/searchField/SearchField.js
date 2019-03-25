@@ -7,7 +7,6 @@ import './searchField.scss';
 const SearchField = ({
     searchField,
     inputChange,
-    searchFieldToggle,
 }) =>{
     return(
         <React.Fragment >
@@ -19,7 +18,6 @@ const SearchField = ({
             onChange={inputChange} 
             placeholder={'Search By Name...'}
             />
-            {console.log(searchField)}
        
         </React.Fragment>
     )
