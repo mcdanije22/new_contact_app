@@ -39,7 +39,6 @@ $desktop:1114px;
 
 @include desktop{
 #navBar{
-  
   #nav{
     padding:2rem;
     flex-wrap: nowrap;
@@ -48,7 +47,7 @@ $desktop:1114px;
       order:3;
     }
     #contactHeaderOrder{
-      order:2;
+      order:1;
     }
     #addBtnOrder{
       order:4;

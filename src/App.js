@@ -51,6 +51,7 @@ class App extends Component {
       this.updateScreenWidth();
       window.addEventListener("resize", this.updateScreenWidth);
     }
+    
 
   updateScreenWidth=()=>{
     if(window.innerWidth >= 1115){
@@ -171,19 +172,52 @@ class App extends Component {
    * edit current contact
   */
 
-  editCurrentContact=(e)=>{
+  // editCurrentContact=(e)=>{
+  //   e.preventDefault();
+  //   const newContact = Object.assign({}, {
+      
+  //     first:this.state.first || this.state.contactList[this.state.contactModalId].first, 
+  //     last:this.state.last || this.state.contactList[this.state.contactModalId].last, 
+  //     number:this.state.number || this.state.contactList[this.state.contactModalId].number, 
+  //     email:this.state.email || this.state.contactList[this.state.contactModalId].email,
+  //     location:this.state.location || this.state.contactList[this.state.contactModalId].location,
+  //     starred: this.state.contactList[this.state.contactModalId].starred
+  //   });
+    
+  //   let editedContactList = [...this.state.contactList];
+  //   editedContactList[this.state.contactModalId] = newContact;
+  //   editedContactList = editedContactList.sort((a,b)=>{
+  //     if(a.first.toLowerCase() > b.first.toLowerCase()) return 1;
+  //     if(a.first.toLowerCase() < b.first.toLowerCase()) return -1;
+  //     })
+  //   this.setState({contactList:editedContactList},()=>{
+  //   this.editLocalStorage(newContact);
+  //   });
+
+
+  //   this.setState({contactCardModal:this.state.contactCardModal?false:true},()=>{
+  //     console.log(this.state.contactCardModal)
+  //   });
+  //   this.clearAddForm();
+  // }
+
+
+//fix this logic
+
+  editCurrentContact=(e,id)=>{
     e.preventDefault();
     const newContact = Object.assign({}, {
-      first:this.state.first || this.state.contactList[this.state.contactModalId].first, 
-      last:this.state.last || this.state.contactList[this.state.contactModalId].last, 
-      number:this.state.number || this.state.contactList[this.state.contactModalId].number, 
-      email:this.state.email || this.state.contactList[this.state.contactModalId].email,
-      location:this.state.location || this.state.contactList[this.state.contactModalId].location,
-      starred: this.state.contactList[this.state.contactModalId].starred
+      
+      first:this.state.first || this.state.contactList[id].first, 
+      last:this.state.last || this.state.contactList[id].last, 
+      number:this.state.number || this.state.contactList[id].number, 
+      email:this.state.email || this.state.contactList[id].email,
+      location:this.state.location || this.state.contactList[id].location,
+      starred: this.state.contactList[id].starred
     });
-
+    
     let editedContactList = [...this.state.contactList];
-    editedContactList[this.state.contactModalId] = newContact;
+    editedContactList[id] = newContact;
     editedContactList = editedContactList.sort((a,b)=>{
       if(a.first.toLowerCase() > b.first.toLowerCase()) return 1;
       if(a.first.toLowerCase() < b.first.toLowerCase()) return -1;
@@ -198,6 +232,8 @@ class App extends Component {
     });
     this.clearAddForm();
   }
+
+  //fix this logic
   
   editLocalStorage = (newContact)=>{
     console.log(this.state.contactModalId)
@@ -215,11 +251,18 @@ class App extends Component {
     }
   }
 
+ 
+
   editContactFormToggle=()=>{
+    
     this.setState({
       editContactForm: this.state.editContactForm?false:true
     })
   }
+
+  // this.setState({contactModalId:e.target.id}, ()=>{
+  //   console.log(this.state.contactModalId);
+  // });
  /********
    * edit current contact end
   */

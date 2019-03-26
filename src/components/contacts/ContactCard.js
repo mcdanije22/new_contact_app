@@ -48,7 +48,7 @@ const ContactCard = ({
         <div className = {contactCardModal && contactModalId == id || screenWidth === 'large'?  'cardModal' : 'closeCardModal'} id ={id} onClick={clickOutsideContactCardModal}>
             <div className = 'card'>
                 <div className = 'cardBanner'>
-                    <p> <FontAwesomeIcon className='back' id={id} icon={faChevronLeft} onClick={showContactCardModal} /><a onClick={showContactCardModal}> Back</a>  </p>
+                    <p> <FontAwesomeIcon className='back'  icon={faChevronLeft} onClick={showContactCardModal} /><a onClick={showContactCardModal}> Back</a>  </p>
                     <FontAwesomeIcon 
                     className='star' 
                     onClick={addToFavrorites} 
