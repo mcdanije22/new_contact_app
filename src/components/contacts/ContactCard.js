@@ -72,14 +72,14 @@ const ContactCard = ({
                 {/* work on this */}
                 {/* && contactModalId !== id */}
                 <input type='image' className='contactCardModalImg' style={{ display: editContactForm && contactModalId == id  && screenWidth === 'large'?'none':'' }} src={photo} alt='current user profile picture'/>
-                    <div className='cardContent'style={{marginTop: editContactForm && screenWidth === 'large'?'4rem':''}} >
+                    <div className='cardContent'style={{marginTop: editContactForm && contactModalId == id && screenWidth === 'large'?'4rem':''}} >
                         <div className='showContactContent' style={{ display: editContactForm && contactModalId == id?'none':'' }} >
                         <h1 className='name'>{first} {last}</h1>
                         <FontAwesomeIcon className='icon' icon={faMobileAlt} /><p>{number}</p>
                         <FontAwesomeIcon className='icon' icon={faEnvelope} /><p>{email}</p>
                         <FontAwesomeIcon className='icon' icon={faCity} /><p>{location}</p>
                         </div>
-                        <div className='cardEdit' style={{ display: !editContactForm && contactModalId == id? 'none':'' }}  >
+                        <div className='cardEdit' style={{ display: !editContactForm || contactModalId !== id? 'none':'' }}  >
                             <EditContactForm 
                                 first={first}
                                 last={last}

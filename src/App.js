@@ -44,12 +44,12 @@ class App extends Component {
     if(local !== null){
       this.setState({contactList:local});
     }
-  
      }
 
      componentDidMount() {
       this.updateScreenWidth();
       window.addEventListener("resize", this.updateScreenWidth);
+      
     }
     
 
