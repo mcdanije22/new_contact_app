@@ -48,7 +48,7 @@ const ContactCard = ({
         <div className = {contactCardModal && contactModalId == id || screenWidth === 'large'?  'cardModal' : 'closeCardModal'} id ={id} onClick={clickOutsideContactCardModal}>
             <div className = 'card'>
                 <div className = 'cardBanner'>
-                    <p> <FontAwesomeIcon className='back'  icon={faChevronLeft} onClick={showContactCardModal} /><a onClick={showContactCardModal}> Back</a>  </p>
+                    <p style = {{display: screenWidth === 'large'?'none':'block'}} > <FontAwesomeIcon className='back' icon={faChevronLeft} onClick={showContactCardModal} /><a onClick={showContactCardModal} > Back</a>  </p>
                     <FontAwesomeIcon 
                     className='star' 
                     onClick={addToFavrorites} 
@@ -59,6 +59,7 @@ const ContactCard = ({
                     }} 
                     icon={faStar} />
                     <FontAwesomeIcon 
+                    id={id}
                     className='edit' 
                     style={{display:hideBtn}}
                     onClick={editContactFormToggle} 
@@ -70,8 +71,8 @@ const ContactCard = ({
                     icon={faTrash} />
                 </div>
 
-                <input type='image' className='contactCardModalImg' src={photo} alt='current user profile picture'/>
-                    <div className='cardContent' >
+                <input type='image' className='contactCardModalImg' style={{ display: editContactForm && screenWidth === 'large'?'none':'' }} src={photo} alt='current user profile picture'/>
+                    <div className='cardContent'style={{marginTop: editContactForm && screenWidth === 'large'?'4rem':''}} >
                         <div className='showContactContent' style={{ display: editContactForm?'none':'' }} >
                         <h1 className='name'>{first} {last}</h1>
                         <FontAwesomeIcon className='icon' icon={faMobileAlt} /><p>{number}</p>
