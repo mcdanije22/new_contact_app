@@ -199,14 +199,12 @@ class App extends Component {
       console.log(this.state.contactCardModal)
     });
     this.clearAddForm();
+    //new logic
+    this.setState({editContactForm: this.state.editContactForm?false:true, contactModalId:''})
   }
-
-
 
   
   editLocalStorage = (newContact)=>{
-    console.log(this.state.contactModalId)
-
     if(localStorage.getItem('contact') == null){
       localStorage.setItem('contact', JSON.stringify([...this.state.contactList]));
     } else{
@@ -222,18 +220,14 @@ class App extends Component {
 
  
 
-  editContactFormToggle=(e)=>{
-    
-    this.setState({
-      editContactForm: this.state.editContactForm?false:true, contactModalId: e.target.id
-    },()=>{
-      console.log(this.state.contactModalId)
-    })
+  editContactFormToggle=(id)=>{
+    this.setState({contactModalId:id,editContactForm: this.state.editContactForm?false:true},()=>{
+    console.log(this.state.contactModalId)
+  });  
   }
 
-  // this.setState({contactModalId:e.target.id}, ()=>{
-  //   console.log(this.state.contactModalId);
-  // });
+ 
+
  /********
    * edit current contact end
   */
@@ -260,6 +254,7 @@ class App extends Component {
 * logic to delete contact and update local storage
 */
   deleteContact=(id)=>{
+    console.log(id);
     const contacts = this.state.contactList;
     contacts.splice(id, 1);
     this.setState({contactList: contacts, contactCardModal:false});
