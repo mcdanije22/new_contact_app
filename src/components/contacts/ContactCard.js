@@ -41,9 +41,10 @@ const ContactCard = ({
             addToFavrorites,
             showFavorites,
             searchFieldToggle,
-            screenWidth
+            screenWidth,
+            searchField
         }) =>{
-            const hideBtn = showFavorites||searchFieldToggle?'none':'block'; 
+            const hideBtn = showFavorites||searchField !=''?'none':'block'; 
     return(   
         <div className = {contactCardModal && contactModalId == id || screenWidth === 'large'?  'cardModal' : 'closeCardModal'} id ={id} onClick={clickOutsideContactCardModal}>
             <div className = 'card'>
@@ -67,10 +68,9 @@ const ContactCard = ({
                     className='delete' 
                     style={{display:hideBtn}}
                     onClick={deleteContact} 
-                    icon={faTrash} />
+                    icon={faTrash} 
+                    />
                 </div>
-                {/* work on this */}
-                {/* && contactModalId !== id */}
                 <input type='image' className='contactCardModalImg' style={{ display: editContactForm && contactModalId == id  && screenWidth === 'large'?'none':'' }} src={photo} alt='current user profile picture'/>
                     <div className='cardContent'style={{marginTop: editContactForm && contactModalId == id && screenWidth === 'large'?'4rem':''}} >
                         <div className='showContactContent' style={{ display: editContactForm && contactModalId == id?'none':'' }} >

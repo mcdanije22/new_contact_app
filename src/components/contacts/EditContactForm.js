@@ -7,7 +7,6 @@ const EditContactForm = ({
     number,
     email,
     location,
-    id,
     editCurrentContact,
     clearAddForm,
     inputChange,

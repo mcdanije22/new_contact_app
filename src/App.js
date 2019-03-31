@@ -49,9 +49,9 @@ class App extends Component {
      componentDidMount() {
       this.updateScreenWidth();
       window.addEventListener("resize", this.updateScreenWidth);
-      
+     
     }
-    
+  
 
   updateScreenWidth=()=>{
     if(window.innerWidth >= 1115){
@@ -150,7 +150,7 @@ class App extends Component {
     this.setState({contactModalId:e.target.id}, ()=>{
       console.log(this.state.contactModalId);
     });
-    this.setState({contactCardModal:this.state.contactCardModal?false:true},()=>{
+    this.setState({contactCardModal:this.state.contactCardModal?false:true, searchFieldToggle:false},()=>{
       console.log(this.state.contactCardModal)
     })
     this.setState({editContactForm:false})
@@ -200,7 +200,7 @@ class App extends Component {
     });
     this.clearAddForm();
     //new logic
-    this.setState({editContactForm: this.state.editContactForm?false:true, contactModalId:''})
+    this.setState({editContactForm: this.state.editContactForm?false:true})
   }
 
   
@@ -254,13 +254,12 @@ class App extends Component {
 * logic to delete contact and update local storage
 */
   deleteContact=(id)=>{
-    console.log(id);
     const contacts = this.state.contactList;
     contacts.splice(id, 1);
     this.setState({contactList: contacts, contactCardModal:false});
-
     localStorage.getItem('contact')
     localStorage.setItem('contact', JSON.stringify([...this.state.contactList]));
+
   }
 /*
 * logic to delete contact and update local storage ends

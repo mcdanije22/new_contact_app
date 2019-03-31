@@ -23,7 +23,8 @@ const ContactLine = ({
     addToFavrorites,
     showFavorites,
     searchFieldToggle,
-    screenWidth
+    screenWidth,
+    searchField
 })=>{
 const {first, last, number, email, location, starred} = contact;
     return(
@@ -55,6 +56,7 @@ const {first, last, number, email, location, starred} = contact;
         showFavorites={showFavorites}
         searchFieldToggle={searchFieldToggle}
         screenWidth={screenWidth}
+        searchField={searchField}
         />  
             <div style={{display:screenWidth === 'large'?'none':'block'}}>
                 <input 

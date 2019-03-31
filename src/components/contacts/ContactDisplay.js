@@ -26,41 +26,42 @@ const ContactDisplay = ({
     screenWidth
 })=>{
     return(
-       <div id='contactArea'>
-    {contactList.filter((contacts)=>{
-        return(  
-         contacts.first.toLowerCase().includes(searchField.toLowerCase()) 
-         ||
-         contacts.last.toLowerCase().includes(searchField.toLowerCase())
-         )
-       }).map((person,i)=>{
-                return <ContactLine 
-                key={i} 
-                contact={person} 
-                id = {i}
-                showContactCardModal = {showContactCardModal}
-                contactModalId={contactModalId}
-                contactCardModal = {contactCardModal}
-                clickOutsideContactCardModal = {clickOutsideContactCardModal}
-                editCurrentContact = {editCurrentContact}
-                clearAddForm={clearAddForm}
-                inputChange = {inputChange}
-                firstInput = {firstInput}
-                lastInput={lastInput}
-                numberInput={numberInput}
-                emailInput={emailInput}
-                locationInput={locationInput}
-                editContactForm={editContactForm}
-                editContactFormToggle={editContactFormToggle}
-                deleteContact={deleteContact}
-                addToFavrorites={addToFavrorites}
-                showFavorites={showFavorites}
-                searchFieldToggle={searchFieldToggle}
-                screenWidth={screenWidth}
-                    />
-                })
-            } 
-       </div>
-    )
+        <div id='contactArea'>
+     {contactList.filter((contacts)=>{
+         return(  
+          contacts.first.toLowerCase().includes(searchField.toLowerCase()) 
+          ||
+          contacts.last.toLowerCase().includes(searchField.toLowerCase())
+          )
+        }).map((person,i)=>{
+                 return <ContactLine 
+                 key={i} 
+                 contact={person} 
+                 id = {i}
+                 showContactCardModal = {showContactCardModal}
+                 contactModalId={contactModalId}
+                 contactCardModal = {contactCardModal}
+                 clickOutsideContactCardModal = {clickOutsideContactCardModal}
+                 editCurrentContact = {editCurrentContact}
+                 clearAddForm={clearAddForm}
+                 inputChange = {inputChange}
+                 firstInput = {firstInput}
+                 lastInput={lastInput}
+                 numberInput={numberInput}
+                 emailInput={emailInput}
+                 locationInput={locationInput}
+                 editContactForm={editContactForm}
+                 editContactFormToggle={editContactFormToggle}
+                 deleteContact={deleteContact}
+                 addToFavrorites={addToFavrorites}
+                 showFavorites={showFavorites}
+                 searchFieldToggle={searchFieldToggle}
+                 screenWidth={screenWidth}
+                 searchField={searchField}
+                     />
+                 })
+             } 
+        </div>
+     )
 }  
 export default ContactDisplay;
