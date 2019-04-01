@@ -15,14 +15,14 @@ $desktop:1114px;
     
         h2{
             font-size: 3rem;
-            color:white;
+            color:black;
             padding-top:3rem;
         } 
             .mobileList{
                 border-radius: 50%;
                 margin: 2rem 0;
                 margin-right:3rem;
-                border: .2rem white solid;   
+                border: .2rem black solid;   
                 float:left;  
                 width:80px;
                 height:80px;  
@@ -41,7 +41,8 @@ $desktop:1114px;
 }
 
 hr{
-    clear: left;   
+    clear: left;  
+    background:black; 
 }
 .closeCardModal{
     display:none;
@@ -80,11 +81,14 @@ hr{
         // border-radius: 5%;
         font-size:2.5rem;
         position: relative;
+        border:1px black solid;
+
         @include desktop{
             height: 25rem;
             width:20rem;
             font-size:1rem;
             margin:1rem;
+            box-shadow: 5px 8px 10px #acabab;
         }
     }
     .cardBanner{
@@ -93,7 +97,8 @@ hr{
             display:flex;
             justify-content: space-around;
             font-size:3rem;
-            background:rgb(62, 58, 131);
+            // background:rgb(62, 58, 131);
+            background: linear-gradient(185deg, rgba(59,69,102,1) 0%, rgba(40,46,73,1) 100%);
             color:white;
             position: absolute;
             width:100%;
@@ -140,7 +145,7 @@ hr{
         border: .8rem black solid;   
         position: absolute;
         display: flex;
-        margin:10rem;
+        margin:10rem 9rem;
         @include desktop{
             height:120px;
             width:120px;
