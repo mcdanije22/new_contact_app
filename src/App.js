@@ -49,7 +49,6 @@ class App extends Component {
      componentDidMount() {
       this.updateScreenWidth();
       window.addEventListener("resize", this.updateScreenWidth);
-     
     }
   
 
@@ -306,7 +305,6 @@ console.log(contacts)
           clearAddForm = {this.clearAddForm}
         />
           <div id = 'main'>
-           
           <NavigationBar 
             modalToggle = {this.addFormModalToggle}
             toggleSearchField={this.toggleSearchField}  
@@ -317,7 +315,6 @@ console.log(contacts)
             searchField = {this.state.searchField}
             inputChange={this.inputChange}
           />
-        
           <ContactDisplay 
             contactList = {this.state.showFavorites?favoriteList:this.state.contactList}
             searchField={this.state.searchField}
@@ -342,8 +339,6 @@ console.log(contacts)
             searchFieldToggle={this.state.searchFieldToggle}
             screenWidth={this.state.screenWidth}
           /> 
-         
-       
            </div> 
         </div>
     );

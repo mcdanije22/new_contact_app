@@ -17,4 +17,4 @@ A web application that lets users create, edit and delete contacts from their co
 - Utilized SASS for more efficient styling 
 
 # **Live Application**
-[Live app] (https://contact-application-new.herokuapp.com/)
+Live app: https://contact-application-new.herokuapp.com/

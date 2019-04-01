@@ -1,4 +1,3 @@
-// $desktop:1114px;
 $desktop:1114px;
 @mixin desktop {
     @media (min-width: #{$desktop}) {
@@ -216,5 +215,13 @@ hr{
     font-size: 4rem;
     @include desktop{
         font-size:2rem;
+    }
+}
+#contactEmpty{
+    font-size:4rem;
+    display: flex;
+    margin: 16rem;
+    @include desktop{
+    margin: 16rem 32rem;
     }
 }

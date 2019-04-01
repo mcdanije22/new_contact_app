@@ -27,6 +27,7 @@ const ContactDisplay = ({
 })=>{
     return(
         <div id='contactArea'>
+        <h1 id = 'contactEmpty' style ={{display: contactList.length == 0 ?'block':'none'}}>No Contacts...</h1>
      {contactList.filter((contacts)=>{
          return(  
           contacts.first.toLowerCase().includes(searchField.toLowerCase()) 

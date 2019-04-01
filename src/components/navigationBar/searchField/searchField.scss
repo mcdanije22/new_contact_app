@@ -25,5 +25,11 @@ $desktop:1114px;
       border:none;
       color:white;
       text-align: left;
+     
     }
+}
+@include desktop{
+::placeholder {
+  color: white;
+  }
 }
