@@ -1,5 +1,5 @@
 # **Contact Application**
-A web application that lets users create, edit and delete contacts from their contact list. The contact list is carried from session to session after reloads utilizing user's local storage. 
+A web application that lets users create, edit and delete contacts from their contact list. The contact list is carried from session to session after reloads utilizing user's local storage. Users can star their favorite contacts and quickly search for specific contacts. Mobile-first design patterns.
 
 # **Built With**
 - HTML, CSS/SASS
