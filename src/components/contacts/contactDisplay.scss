@@ -88,6 +88,7 @@ hr{
             font-size:1rem;
             margin:1rem;
             box-shadow: 5px 8px 10px #acabab;
+            
         }
     }
     .cardBanner{
@@ -145,6 +146,7 @@ hr{
         position: absolute;
         display: flex;
         margin:10rem 9rem;
+        
         @include desktop{
             height:120px;
             width:120px;
@@ -158,6 +160,7 @@ hr{
         @include desktop{
             margin-top:12rem;
             padding:0 1rem;
+            
         }
         .icon, p{
             margin-top:3rem;
@@ -169,6 +172,11 @@ hr{
             float:left;
             margin-left:1rem;
         }
+    }
+}
+.inputContactGroup{
+    ::placeholder{
+        color:black;
     }
 }
 .cardEdit{
@@ -199,7 +207,6 @@ hr{
             @include desktop{
                 font-size:1rem;
                 padding:0.2rem;
-                
             }
 
         }
@@ -215,6 +222,7 @@ hr{
     font-size: 4rem;
     @include desktop{
         font-size:2rem;
+        
     }
 }
 #contactEmpty{
